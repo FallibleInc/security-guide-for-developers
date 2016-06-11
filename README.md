@@ -5,7 +5,7 @@
 Security issues happen for two reasons - 
 
 1. Developers who have just started and cannot really tell a difference between using MD5 or bcrypt.
-2. Developers who know sutff but forget/ignore them.
+2. Developers who know stuff but forget/ignore them.
 
 Our detailed explainations should help the first type while we hope our checklist helps the second one create more secure systems. This is by no means a comprehensive guide, it just covers stuff based on the most common issues we have discovered in the past.
 
@@ -102,7 +102,7 @@ Our detailed explainations should help the first type while we hope our checklis
 - [ ] JWT are awesome, use them if required for your APIs.
 
 
-##### ANDRIOD / IOS APP BUNDLE
+##### ANDRIOD / IOS APP
 - [ ] `salt` from payment gateways should not be hardcoded.
 - [ ] `secret` / `auth token` from 3rd party SDK's should not be hardcoded.
 - [ ] API calls intended to be done `server to server` should not be done from the App.
@@ -130,7 +130,6 @@ Our detailed explainations should help the first type while we hope our checklis
 - [ ] Check for machines with unwanted publicly `open ports`.
 - [ ] Check for no/default passwords for `databases` especially MongoDB & Redis. BTW MongoDB sucks, avoid it.
 - [ ] Use SSH to access your machines, do no setup a password.
-- [ ] 
 - [ ] Install updates timely to act upon zero day vulnerabilities like Heartbleed, Shellshock.
 - [ ] Modify server config to use TLS 1.2 for HTTPS and disable all other schemes.
 - [ ] Be prepared for bad actors & DDOS - use [Cloudflare](https://www.cloudflare.com/ddos/)
@@ -143,11 +142,11 @@ Our detailed explainations should help the first type while we hope our checklis
 - [ ] Be polite to bug reporters.
 - [ ] Have your code review done by a fellow developer from a secure coding perspective. (More eyes)
 - [ ] In case of a hack or data breach, check previous logs for data access, ask people to change passwords. You might require an audit by external agencies depending on where you are incorporated.  
-- [ ] Setup Netflix scumblr to hear about talks about your organization on social platforms and Google search.
+- [ ] Setup Netflix Scumblr to hear about talks about your organization on social platforms and Google search.
 
 ### Who are we?
 
-We are full stack developers who just grew tired by watching how developers were lowering the barrier to call something a hack by writing unsecure code. In the past six months we have prevented leaks of more than 15 million credit card details, personal details of over 45 million users and potentially saved companies from shutting down. Recently, we discovered an issue that could result in system takeover and data leak in a bitcoin institution. We have helped several startups secure their systems, most of them for free, without even getting a thank you in response :)
+We are full stack developers who just grew tired by watching how developers were lowering the barrier to call something a hack by writing unsecure code. In the past six months we have prevented leaks of more than 15 million credit card details, personal details of over 45 million users and potentially saved companies from shutting down. Recently, we discovered an issue that could result in system takeover and data leak in a bitcoin institution. We have helped several startups secure their systems, most of them for free, sometimes without even getting a thank you in response :)
 
 
 *If you disagree with something or find a bug please open an issue or file a PR. Alternatively, you can talk to us on hello@fallible.co*
