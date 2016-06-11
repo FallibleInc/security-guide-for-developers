@@ -128,6 +128,7 @@ Our detailed explainations should help the first type while we hope our checklis
 - [ ] Sanitize user input if using it directly for functionalites like CSV import.
 - [ ] `Sanitize` user input for special cases like robots.txt as profile names in case you are using a url pattern like coolcorp.io/username. 
 - [ ] Do not hand code or build JSON by string concatentation ever, no matter how small the object is. Use your langauge defined libraries or framework.
+- [ ] Sanitize inputs that take some sort of URLs to prevent [SSRF](https://docs.google.com/document/d/1v1TkWZtrhzRLy0bYXBcdLUedXGb9njTNIJXa3u9akHM/edit#heading=h.t4tsk5ixehdd).
 - [ ] Sanitize Outputs before displaying to users.
 
 ##### OPERATIONS
