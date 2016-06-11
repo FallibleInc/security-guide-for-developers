@@ -84,6 +84,7 @@ Our detailed explainations should help the first type while we hope our checklis
 - [ ] Must have the `state` parameter in OAuth2
 - [ ] No open redirects after successful login or in any other intermediate redirects.
 - [ ] While Signup/Login input, sanitize input for javascript://, data://, CRLF characters. 
+- [ ] Set secure, httpOnly cookies.
 - [ ] In Mobile `OTP` based mobile verification, do not send the OTP back in the response when `generate OTP` or `Resend OTP`  API is called.
 - [ ] Limit attempts to `Login`, `Verify OTP`, `Resend OTP` and `generate OTP` APIs for a particular user. Have an exponential backoff set or/and something like a captcha based challenge.
 - [ ] Check for randomness of reset password token in the emailed link or SMS 
@@ -99,7 +100,7 @@ Our detailed explainations should help the first type while we hope our checklis
 - [ ] Any upload feature should sanitize the filename provided by the user. Also, for generally reasons apart from security, upload to something like S3 (and post-process using lambda) and not your own server capable of executing code.  
 - [ ] `Profile photo upload` feature should sanitize all the `EXIF` tags also if not required.
 - [ ] For user ids and other ids, use [RFC complaint ](http://www.ietf.org/rfc/rfc4122.txt) `UUID` instead of integers. You can find an implementation for this for your language on Github.  
-- [ ] JWT are awesome, use them if required for your APIs.
+- [ ] JWT are awesome, use them if required for your single page app/APIs.
 
 
 ##### ANDRIOD / IOS APP
@@ -118,11 +119,16 @@ Our detailed explainations should help the first type while we hope our checklis
 - [ ] `Add` [X-XSS-Protection](https://www.owasp.org/index.php/OWASP_Secure_Headers_Project#X-XSS-Protection) header to mitigate XSS attacks.
 - [ ] Update DNS records to add [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) record to mitigate spam and phishing attacks.
 - [ ] Add [subresource integrity checks](https://en.wikipedia.org/wiki/Subresource_Integrity) if loading your JavaScript libraries from a third party CDN.
+- [ ] Use random CSRF tokens and expose buisness logic APIs as HTTP POST requests. Do not expose CSRF tokens over HTTP for example in a inital request upgrade phase.
+- [ ] Do not use critical data or tokens in GET request parameters. Exposure of server logs or a machine/stack processing them would expose user data in turn.
 
 ##### SANITIZATION OF INPUT
-- [ ] `Sanitize` all user inputs to prevent [XSS](https://en.wikipedia.org/wiki/Cross-site_scripting)
-- [ ] `Sanitize` all user inputs to prevent [SQL Injection](https://en.wikipedia.org/wiki/SQL_injection)
-- [ ] Sanitize Outputs before displaying to users ?
+- [ ] `Sanitize` all user inputs or any input parameters exposed to user to prevent [XSS](https://en.wikipedia.org/wiki/Cross-site_scripting)
+- [ ] `Sanitize` all user inputs or any input parameters exposed to user to prevent [SQL Injection](https://en.wikipedia.org/wiki/SQL_injection)
+- [ ] Sanitize user input if using it directly for functionalites like CSV import.
+- [ ] `Sanitize` user input for special cases like robots.txt as profile names in case you are using a url pattern like coolcorp.io/username. 
+- [ ] Do not hand code or build JSON by string concatentation ever, no matter how small the object is. Use your langauge defined libraries or framework.
+- [ ] Sanitize Outputs before displaying to users.
 
 ##### OPERATIONS
 - [ ] If you are small and inexperienced, evaluate using AWS elasticbeanstalk or a PaaS to run your code.
@@ -131,7 +137,8 @@ Our detailed explainations should help the first type while we hope our checklis
 - [ ] Check for no/default passwords for `databases` especially MongoDB & Redis. BTW MongoDB sucks, avoid it.
 - [ ] Use SSH to access your machines, do no setup a password.
 - [ ] Install updates timely to act upon zero day vulnerabilities like Heartbleed, Shellshock.
-- [ ] Modify server config to use TLS 1.2 for HTTPS and disable all other schemes.
+- [ ] Modify server config to use TLS 1.2 for HTTPS and disable all other schemes. (The tradeoff is good)
+- [ ] Do not leave the DEBUG mode on. In some frameworks, DEBUG mode can give access full-fledged REPL or shells or expose critical data in error messages stacktraces.
 - [ ] Be prepared for bad actors & DDOS - use [Cloudflare](https://www.cloudflare.com/ddos/)
 - [ ] Setup monitoring for your systems and log stuff (use Newrelic or something like that)
 - [ ] If developing for enterprise customers, adhere to compliance requirements. If AWS S3, consider using the feature to [encrypt data](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html). If using AWS EC2, consider using the feature to use encrypted volumes (even boot volumes can be encypted now). 
