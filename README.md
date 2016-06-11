@@ -150,4 +150,4 @@ Our detailed explainations should help the first type while we hope our checklis
 We are full stack developers who just grew tired by watching how developers were lowering the barrier to call something a hack by writing unsecure code. In the past six months we have prevented leaks of more than 15 million credit card details, personal details of over 45 million users and potentially saved companies from shutting down. Recently, we discovered an issue that could result in system takeover and data leak in a bitcoin institution. We have helped several startups secure their systems, most of them for free, without even getting a thank you in response :)
 
 
-*If you disagree with something or find a bug please open a bug or file a PR. Alternatively, you can talk to us on hello@fallible.co*
+*If you disagree with something or find a bug please open an issue or file a PR. Alternatively, you can talk to us on hello@fallible.co*
