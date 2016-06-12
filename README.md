@@ -1,4 +1,4 @@
-# Security guide for Web Developers
+# A practical security guide for web developers
 
 ### The intended audience
 
