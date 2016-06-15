@@ -136,7 +136,7 @@ Our detailed explainations should help the first type while we hope our checklis
 - [ ] Use a decent provisioning script to create VMs in the cloud.
 - [ ] Check for machines with unwanted publicly `open ports`.
 - [ ] Check for no/default passwords for `databases` especially MongoDB & Redis. BTW MongoDB sucks, avoid it.
-- [ ] Use SSH to access your machines, do no setup a password.
+- [ ] Use SSH to access your machines, do not setup a password.
 - [ ] Install updates timely to act upon zero day vulnerabilities like Heartbleed, Shellshock.
 - [ ] Modify server config to use TLS 1.2 for HTTPS and disable all other schemes. (The tradeoff is good)
 - [ ] Do not leave the DEBUG mode on. In some frameworks, DEBUG mode can give access full-fledged REPL or shells or expose critical data in error messages stacktraces.
