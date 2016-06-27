@@ -65,7 +65,7 @@ Our detailed explainations should help the first type while we hope our checklis
 13.2 Cross Site Request Forgery  
 13.3 Denial of Service  
 13.4 Server Side Request Forgery
-14. Analysis of recent vulnerabilities & attacks   
+14. [Stats about vulnerabilities discovered in Internet Companies](vulnerabilities-stats.md)   
 15. On reinventing the wheel, and making it square  
 15.1 Security libraries and packages for Python  
 15.2 Security libraries and packages for Node/JS  
