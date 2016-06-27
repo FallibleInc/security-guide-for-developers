@@ -1,9 +1,9 @@
 [Back to Contents](README.md)
 
 
-### HackerOne publicly disclosed bugs Stats
+### Hackerone publicly disclosed bugs Stats
 
-At the time of writing, the HackerOne platform had 1731 publicly disclosed bugs in companies such as Twitter, Uber, Dropbox, Github etc.
+At the time of writing, the Hackerone platform had 1731 publicly disclosed bugs in companies such as Twitter, Uber, Dropbox, Github etc.
 8 of the bugs were removed as outright spam. 9 others were related to bugs in the Internet or a specific programming language. Out of the remaining 1714, we were able to classify 1359 issues using some code and manual work.
 
     
@@ -22,7 +22,7 @@ At the time of writing, the HackerOne platform had 1731 publicly disclosed bugs 
 
 #### Issues sorted by their frequency of occurence 
 
-1 out of 3 issues were related to XSS, Insecure references to data (data leak) or missing CSRF token. The [HackerOne page](https://hackerone.com/hacktivity/new) listing these issues is quite interesting and can be read.
+1 out of 3 issues were related to XSS, Insecure references to data (data leak) or missing CSRF token. The [Hackerone page](https://hackerone.com/hacktivity/new) listing these issues is quite interesting and can be read.
 
 Type|Count|Percentage
 | --- | --- | --- |
