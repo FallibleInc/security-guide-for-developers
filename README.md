@@ -12,7 +12,7 @@ Our detailed explainations should help the first type while we hope our checklis
 
 ### Contents
 
-1. [The Security Checklist](#the-security-checklist)
+1. [The Security Checklist](security-checklist.md)
 2. What can go wrong?
 3. Securely transporting stuff: HTTPS explained
 4. I am who I say I am: Authentication  
