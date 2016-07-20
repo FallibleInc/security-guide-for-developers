@@ -7,7 +7,7 @@
 - [ ] Use HTTPS everywhere.
 - [ ] Store password hashes using `Bcrypt` with a random `salt`.
 - [ ] Destroy the session identifier after `logout`.  
-- [ ] Destory all active sessions on reset password (or offer to).  
+- [ ] Destroy all active sessions on reset password (or offer to).  
 - [ ] Must have the `state` parameter in OAuth2
 - [ ] No open redirects after successful login or in any other intermediate redirects.
 - [ ] While Signup/Login input, sanitize input for javascript://, data://, CRLF characters. 
@@ -30,7 +30,7 @@
 - [ ] JWT are awesome, use them if required for your single page app/APIs.
 
 
-##### ANDRIOD / IOS APP
+##### ANDROID / IOS APP
 - [ ] `salt` from payment gateways should not be hardcoded.
 - [ ] `secret` / `auth token` from 3rd party SDK's should not be hardcoded.
 - [ ] API calls intended to be done `server to server` should not be done from the App.
@@ -46,15 +46,15 @@
 - [ ] `Add` [X-XSS-Protection](https://www.owasp.org/index.php/OWASP_Secure_Headers_Project#X-XSS-Protection) header to mitigate XSS attacks.
 - [ ] Update DNS records to add [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) record to mitigate spam and phishing attacks.
 - [ ] Add [subresource integrity checks](https://en.wikipedia.org/wiki/Subresource_Integrity) if loading your JavaScript libraries from a third party CDN.
-- [ ] Use random CSRF tokens and expose buisness logic APIs as HTTP POST requests. Do not expose CSRF tokens over HTTP for example in a inital request upgrade phase.
+- [ ] Use random CSRF tokens and expose business logic APIs as HTTP POST requests. Do not expose CSRF tokens over HTTP for example in an initial request upgrade phase.
 - [ ] Do not use critical data or tokens in GET request parameters. Exposure of server logs or a machine/stack processing them would expose user data in turn.
 
 ##### SANITIZATION OF INPUT
 - [ ] `Sanitize` all user inputs or any input parameters exposed to user to prevent [XSS](https://en.wikipedia.org/wiki/Cross-site_scripting)
 - [ ] `Sanitize` all user inputs or any input parameters exposed to user to prevent [SQL Injection](https://en.wikipedia.org/wiki/SQL_injection)
-- [ ] Sanitize user input if using it directly for functionalites like CSV import.
+- [ ] Sanitize user input if using it directly for functionalities like CSV import.
 - [ ] `Sanitize` user input for special cases like robots.txt as profile names in case you are using a url pattern like coolcorp.io/username. 
-- [ ] Do not hand code or build JSON by string concatentation ever, no matter how small the object is. Use your langauge defined libraries or framework.
+- [ ] Do not hand code or build JSON by string concatenation ever, no matter how small the object is. Use your langauge defined libraries or framework.
 - [ ] Sanitize inputs that take some sort of URLs to prevent [SSRF](https://docs.google.com/document/d/1v1TkWZtrhzRLy0bYXBcdLUedXGb9njTNIJXa3u9akHM/edit#heading=h.t4tsk5ixehdd).
 - [ ] Sanitize Outputs before displaying to users.
 
