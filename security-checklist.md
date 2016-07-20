@@ -10,7 +10,7 @@
 - [ ] Destory all active sessions on reset password (or offer to).  
 - [ ] Must have the `state` parameter in OAuth2
 - [ ] No open redirects after successful login or in any other intermediate redirects.
-- [ ] While Signup/Login input, sanitize input for javascript://, data://, CRLF characters. 
+- [ ] When parsing Signup/Login input, sanitize for javascript://, data://, CRLF characters. 
 - [ ] Set secure, httpOnly cookies.
 - [ ] In Mobile `OTP` based mobile verification, do not send the OTP back in the response when `generate OTP` or `Resend OTP`  API is called.
 - [ ] Limit attempts to `Login`, `Verify OTP`, `Resend OTP` and `generate OTP` APIs for a particular user. Have an exponential backoff set or/and something like a captcha based challenge.
@@ -27,7 +27,7 @@
 - [ ] Any upload feature should sanitize the filename provided by the user. Also, for generally reasons apart from security, upload to something like S3 (and post-process using lambda) and not your own server capable of executing code.  
 - [ ] `Profile photo upload` feature should sanitize all the `EXIF` tags also if not required.
 - [ ] For user ids and other ids, use [RFC complaint ](http://www.ietf.org/rfc/rfc4122.txt) `UUID` instead of integers. You can find an implementation for this for your language on Github.  
-- [ ] JWT are awesome, use them if required for your single page app/APIs.
+- [ ] [JWT](https://jwt.io/) are awesome. Use them if required for your single page app/APIs.
 
 
 ##### ANDRIOD / IOS APP
@@ -63,12 +63,12 @@
 - [ ] Use a decent provisioning script to create VMs in the cloud.
 - [ ] Check for machines with unwanted publicly `open ports`.
 - [ ] Check for no/default passwords for `databases` especially MongoDB & Redis. BTW MongoDB sucks, avoid it.
-- [ ] Use SSH to access your machines, do not setup a password.
+- [ ] Use SSH to access your machines; do not setup a password.
 - [ ] Install updates timely to act upon zero day vulnerabilities like Heartbleed, Shellshock.
 - [ ] Modify server config to use TLS 1.2 for HTTPS and disable all other schemes. (The tradeoff is good)
 - [ ] Do not leave the DEBUG mode on. In some frameworks, DEBUG mode can give access full-fledged REPL or shells or expose critical data in error messages stacktraces.
 - [ ] Be prepared for bad actors & DDOS - use [Cloudflare](https://www.cloudflare.com/ddos/)
-- [ ] Setup monitoring for your systems and log stuff (use Newrelic or something like that)
+- [ ] Setup monitoring for your systems and log stuff (use [New Relic](https://newrelic.com/) or something like that)
 - [ ] If developing for enterprise customers, adhere to compliance requirements. If AWS S3, consider using the feature to [encrypt data](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html). If using AWS EC2, consider using the feature to use encrypted volumes (even boot volumes can be encypted now). 
 
 ##### PEOPLE
@@ -77,4 +77,4 @@
 - [ ] Be polite to bug reporters.
 - [ ] Have your code review done by a fellow developer from a secure coding perspective. (More eyes)
 - [ ] In case of a hack or data breach, check previous logs for data access, ask people to change passwords. You might require an audit by external agencies depending on where you are incorporated.  
-- [ ] Setup Netflix Scumblr to hear about talks about your organization on social platforms and Google search.
+- [ ] Setup [Netflix's Scumblr](https://github.com/Netflix/Scumblr) to hear about talks about your organization on social platforms and Google search.
