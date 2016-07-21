@@ -63,7 +63,7 @@
 - [ ] Use a decent provisioning script to create VMs in the cloud.
 - [ ] Check for machines with unwanted publicly `open ports`.
 - [ ] Check for no/default passwords for `databases` especially MongoDB & Redis. BTW MongoDB sucks, avoid it.
-- [ ] Use SSH to access your machines; do not setup a password.
+- [ ] Use SSH to access your machines; do not set up a password.
 - [ ] Install updates timely to act upon zero day vulnerabilities like Heartbleed, Shellshock.
 - [ ] Modify server config to use TLS 1.2 for HTTPS and disable all other schemes. (The tradeoff is good.)
 - [ ] Do not leave the DEBUG mode on. In some frameworks, DEBUG mode can give access full-fledged REPL or shells or expose critical data in error messages stacktraces.
@@ -72,9 +72,9 @@
 - [ ] If developing for enterprise customers, adhere to compliance requirements. If AWS S3, consider using the feature to [encrypt data](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html). If using AWS EC2, consider using the feature to use encrypted volumes (even boot volumes can be encypted now). 
 
 ##### PEOPLE
-- [ ] Setup an email (e.g. security@coolcorp.io) and a page for security researchers to report vulnerabilities.
+- [ ] Set up an email (e.g. security@coolcorp.io) and a page for security researchers to report vulnerabilities.
 - [ ] Depending on what you are making, limit access to your user databases.
 - [ ] Be polite to bug reporters.
 - [ ] Have your code review done by a fellow developer from a secure coding perspective. (More eyes)
 - [ ] In case of a hack or data breach, check previous logs for data access, ask people to change passwords. You might require an audit by external agencies depending on where you are incorporated.  
-- [ ] Setup [Netflix's Scumblr](https://github.com/Netflix/Scumblr) to hear about talks about your organization on social platforms and Google search.
+- [ ] Set up [Netflix's Scumblr](https://github.com/Netflix/Scumblr) to hear about talks about your organization on social platforms and Google search.
