@@ -7,7 +7,7 @@ Security issues happen for two reasons -
 1. Developers who have just started and cannot really tell a difference between using MD5 or bcrypt.
 2. Developers who know stuff but forget/ignore them.
 
-Our detailed explainations should help the first type while we hope our checklist helps the second one create more secure systems. This is by no means a comprehensive guide, it just covers stuff based on the most common issues we have discovered in the past.
+Our detailed explanations should help the first type while we hope our checklist helps the second one create more secure systems. This is by no means a comprehensive guide, it just covers stuff based on the most common issues we have discovered in the past.
 
 
 ### Contents
