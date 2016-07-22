@@ -17,7 +17,7 @@
 - [ ] Check for randomness of reset password token in the emailed link or SMS.
 - [ ] Set an expiration on the reset password token for a reasonable period.
 - [ ] Expire the reset token after it has been successfully used.
-
+- [ ] Ensure that login and password reset pages prevent [enumeration attacks](https://www.owasp.org/index.php/Testing_for_User_Enumeration_and_Guessable_User_Account_(OWASP-AT-002)).
 
 ##### USER DATA & AUTHORIZATION
 - [ ] Any resource access like, `my cart`, `my history` should check the logged in user's ownership of the resource using session id.
