@@ -51,15 +51,15 @@ Our detailed explanations should help the first type while we hope our checklist
 11.2 Data integrity check for 3rd party code  
 11.3 Certificate Pinning
 12. Configuration mistakes    
-12.0 Provisioning in cloud: Ports, Shodan & AWS
-12.1 Honey, you left the debug mode on  
-12.2 Logging (or not logging)  
-12.3 Monitoring  
-12.4 Principle of least privilege  
-12.5 Rate limiting & Captchas  
-12.6 Storing project secrets and passwords in a file    
-12.7 DNS: Of subdomains and forgotten pet-projects  
-12.7 Patching & Updates  
+12.1 Provisioning in cloud: Ports, Shodan & AWS  
+12.2 Honey, you left the debug mode on  
+12.3 Logging (or not logging)  
+12.4 Monitoring  
+12.5 Principle of least privilege  
+12.6 Rate limiting & Captchas  
+12.7 Storing project secrets and passwords in a file    
+12.8 DNS: Of subdomains and forgotten pet-projects  
+12.9 Patching & Updates  
 13. Attacks: When the bad guys arrive  
 13.1 Clickjacking  
 13.2 Cross Site Request Forgery  
