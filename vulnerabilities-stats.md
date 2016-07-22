@@ -20,7 +20,7 @@ At the time of writing, the Hackerone platform had 1731 publicly disclosed bugs 
 | Unclassified+Info+Junk         | 376      | 21.7
 
 
-#### Issues sorted by their frequency of occurence 
+#### Issues sorted by their frequency of occurrence
 
 1 out of 3 issues were related to XSS, Insecure references to data (data leak) or missing CSRF token. The [Hackerone page](https://hackerone.com/hacktivity/new) listing these issues is quite interesting and can be read.
 
