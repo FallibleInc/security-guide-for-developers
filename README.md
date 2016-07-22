@@ -37,7 +37,7 @@ Our detailed explanations should help the first type while we hope our checklist
 7.2 Encryption  
 7.3 Hashing & One way functions  
 7.4 Hashing speeds cheatsheet
-8. Passwords: dadada, 123456 and cute@123
+8. Passwords: dadada, 123456 and cute@123  
 8.1 Password policies  
 8.2 Storing passwords  
 8.3 Life without passwords
