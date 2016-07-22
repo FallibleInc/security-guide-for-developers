@@ -34,7 +34,7 @@ Our detailed explanations should help the first type while we hope our checklist
 6.6 Tamper-proof user inputs
 7. Plaintext != Encoding != Encryption != Hashing  
 7.1 Common encoding schemes  
-7.2 Encyption  
+7.2 Encryption  
 7.3 Hashing & One way functions  
 7.4 Hashing speeds cheatsheet
 8. dadada, 123456, cute@123: Passwords  
