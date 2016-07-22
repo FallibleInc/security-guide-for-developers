@@ -62,7 +62,7 @@
 - [ ] If you are small and inexperienced, evaluate using AWS elasticbeanstalk or a PaaS to run your code.
 - [ ] Use a decent provisioning script to create VMs in the cloud.
 - [ ] Check for machines with unwanted publicly `open ports`.
-- [ ] Check for no/default passwords for `databases` especially MongoDB & Redis. BTW MongoDB sucks, avoid it.
+- [ ] Check for no/default passwords for `databases` especially MongoDB & Redis.
 - [ ] Use SSH to access your machines; do not setup a password.
 - [ ] Install updates timely to act upon zero day vulnerabilities like Heartbleed, Shellshock.
 - [ ] Modify server config to use TLS 1.2 for HTTPS and disable all other schemes. (The tradeoff is good)
