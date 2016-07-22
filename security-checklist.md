@@ -13,7 +13,7 @@
 - [ ] When parsing Signup/Login input, sanitize for javascript://, data://, CRLF characters. 
 - [ ] Set secure, httpOnly cookies.
 - [ ] In Mobile `OTP` based mobile verification, do not send the OTP back in the response when `generate OTP` or `Resend OTP`  API is called.
-- [ ] On Android, do not store Potentially Identifiable Information(PII) in SharedPreferences unencrypted. Use [Secure Preferences](https://github.com/scottyab/secure-preferences)
+- [ ] On Android, do not store Potentially Identifiable Information(PII) in SharedPreferences unencrypted. Use [Secure Preferences](https://github.com/scottyab/secure-preferences) instead.
 - [ ] Limit attempts to `Login`, `Verify OTP`, `Resend OTP` and `generate OTP` APIs for a particular user. Have an exponential backoff set or/and something like a captcha based challenge.
 - [ ] Check for randomness of reset password token in the emailed link or SMS.
 - [ ] Set an expiration on the reset password token for a reasonable period.
