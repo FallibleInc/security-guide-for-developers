@@ -51,7 +51,7 @@ Our detailed explanations should help the first type while we hope our checklist
 11.2 Data integrity check for 3rd party code  
 11.3 Certificate Pinning
 12. Configuration mistakes    
-12.0 Provisoning in cloud: Ports, Shodan & AWS   
+12.0 Provisioning in cloud: Ports, Shodan & AWS
 12.1 Honey, you left the debug mode on  
 12.2 Logging (or not logging)  
 12.3 Monitoring  

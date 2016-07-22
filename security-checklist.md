@@ -55,7 +55,7 @@
 - [ ] `Sanitize` all user inputs or any input parameters exposed to user to prevent [SQL Injection](https://en.wikipedia.org/wiki/SQL_injection).
 - [ ] Sanitize user input if using it directly for functionalities like CSV import.
 - [ ] `Sanitize` user input for special cases like robots.txt as profile names in case you are using a url pattern like coolcorp.io/username. 
-- [ ] Do not hand code or build JSON by string concatenation ever, no matter how small the object is. Use your langauge defined libraries or framework.
+- [ ] Do not hand code or build JSON by string concatenation ever, no matter how small the object is. Use your language defined libraries or framework.
 - [ ] Sanitize inputs that take some sort of URLs to prevent [SSRF](https://docs.google.com/document/d/1v1TkWZtrhzRLy0bYXBcdLUedXGb9njTNIJXa3u9akHM/edit#heading=h.t4tsk5ixehdd).
 - [ ] Sanitize Outputs before displaying to users.
 
@@ -70,7 +70,7 @@
 - [ ] Do not leave the DEBUG mode on. In some frameworks, DEBUG mode can give access full-fledged REPL or shells or expose critical data in error messages stacktraces.
 - [ ] Be prepared for bad actors & DDOS - use [Cloudflare](https://www.cloudflare.com/ddos/).
 - [ ] Set up monitoring for your systems, and log stuff (use [New Relic](https://newrelic.com/) or something like that).
-- [ ] If developing for enterprise customers, adhere to compliance requirements. If AWS S3, consider using the feature to [encrypt data](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html). If using AWS EC2, consider using the feature to use encrypted volumes (even boot volumes can be encypted now). 
+- [ ] If developing for enterprise customers, adhere to compliance requirements. If AWS S3, consider using the feature to [encrypt data](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html). If using AWS EC2, consider using the feature to use encrypted volumes (even boot volumes can be encrypted now).
 
 ##### PEOPLE
 - [ ] Set up an email (e.g. security@coolcorp.io) and a page for security researchers to report vulnerabilities.
