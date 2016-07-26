@@ -17,7 +17,7 @@ Our detailed explanations should help the first type while we hope our checklist
 3. Secure data transmission  
 3.1 SSL/TLS  
 3.2 HTTPS  
-3.2 SFTP
+3.3 SFTP  
 4. Authentication: I am who I say I am  
 4.1 Form based authentication  
 4.2 Basic authentication  
