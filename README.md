@@ -15,7 +15,8 @@ Our detailed explanations should help the first type while we hope our checklist
 1. [The Security Checklist](security-checklist.md)
 2. What can go wrong?
 3. Secure data transmission  
-3.1 HTTPS  
+3.1 SSL/TLS  
+3.2 HTTPS  
 3.2 SFTP
 4. Authentication: I am who I say I am  
 4.1 Form based authentication  
