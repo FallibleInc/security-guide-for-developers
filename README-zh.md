@@ -82,5 +82,4 @@
 
 我们是全栈开发工程师，讨厌看到那些所谓为了做某件事情而hack，但写了一堆不安全的代码的开发者。在过去六个月，我们保护了超过1500w信用卡信息以及超过4500w用户的个人信息以及被盗，以及防止了大量的公司倒闭。最近，我们发现一个安全问题就能是一家比特币交易公司数据泄露从而倒闭。我们以及帮助了若干创业公司让他们的系统更安全，大多数是免费的，有时候甚至连『谢谢』都没收到：）
 
-
-*If you disagree with something or find a bug please open an issue or file a PR. Alternatively, you can talk to us on hello@fallible.co*
+*如果你不同意我们的观点或者找到bug，请开启一个issue或者提交一个PR给我们。另外，你也可以通过 hello@fallible.co 与我们交流。*
