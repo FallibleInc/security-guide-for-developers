@@ -50,37 +50,37 @@
 11. 加固安全, 一次只有一个头信息    
 11.1 安全的web header    
 11.2 第三方代码的数据集成检测    
-11.3 Certificate Pinning
-12. Configuration mistakes    
-12.1 Provisioning in cloud: Ports, Shodan & AWS  
-12.2 Honey, you left the debug mode on  
-12.3 Logging (or not logging)  
-12.4 Monitoring  
-12.5 Principle of least privilege  
-12.6 Rate limiting & Captchas  
-12.7 Storing project secrets and passwords in a file    
-12.8 DNS: Of subdomains and forgotten pet-projects  
-12.9 Patching & Updates  
-13. Attacks: When the bad guys arrive  
-13.1 Clickjacking  
-13.2 Cross Site Request Forgery  
-13.3 Denial of Service  
-13.4 Server Side Request Forgery
+11.3 证书绑定  
+12. 配置错误      
+12.1 云上准备: 端口、Shodan、AWS  
+12.2 亲，你开了debug模式    
+12.3 日志（或者没有日志）  
+12.4 监控  
+12.5 最低优先级原理    
+12.6 （请求）频率限制 和 Captchas  
+12.7 把项目的密钥和密码保存在文件上      
+12.8 DNS: 关于子域名和被遗忘的宠物计划    
+12.9 打补丁和更新    
+13. 攻击: 当坏人来临    
+13.1 点击劫持    
+13.2 跨站请求伪造    
+13.3 拒绝服务    
+13.4 服务端请求伪造  
 14. [Stats about vulnerabilities discovered in Internet Companies](vulnerabilities-stats.md)   
-15. On reinventing the wheel, and making it square  
-15.1 Security libraries and packages for Python  
-15.2 Security libraries and packages for Node/JS  
-15.3 Learning resources
-16. Maintaining a good security hygiene
-17. Security Vs Usability
-18. Back to Square 1: The Security Checklist explained
+15. 重造轮子，但做出来是方的    
+15.1 Python的安全库和包    
+15.2 NodeJS的安全库和包  
+15.3 学习资料  
+16. 掌握良好的安全习惯  
+17. 安全性  vs 可用性  
+18. 回到第1条: 安全Checklist解释  
 
 
 
 
-### Who are we?
+### 我们是谁?
 
-We are full stack developers who just grew tired by watching how developers were lowering the barrier to call something a hack by writing unsecure code. In the past six months we have prevented leaks of more than 15 million credit card details, personal details of over 45 million users and potentially saved companies from shutting down. Recently, we discovered an issue that could result in system takeover and data leak in a bitcoin institution. We have helped several startups secure their systems, most of them for free, sometimes without even getting a thank you in response :)
+我们是全栈开发工程师，讨厌看到那些所谓为了做某件事情而hack，但写了一堆不安全的代码的开发者。在过去六个月，我们保护了超过1500w信用卡信息以及超过4500w用户的个人信息以及被盗，以及防止了大量的公司倒闭。最近，我们发现一个安全问题就能是一家比特币交易公司数据泄露从而倒闭。我们以及帮助了若干创业公司让他们的系统更安全，大多数是免费的，有时候甚至连『谢谢』都没收到：）
 
 
 *If you disagree with something or find a bug please open an issue or file a PR. Alternatively, you can talk to us on hello@fallible.co*
