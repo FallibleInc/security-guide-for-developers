@@ -26,30 +26,30 @@
 5.1 基于Token的权限验证    
 5.2 OAuth 和 OAuth2  
 5.3 JWT
-6. Data Validation and Sanitation: Never trust user input  
-6.1 Validating and Sanitizing Inputs  
-6.2 Sanitizing Outputs  
-6.3 Cross Site Scripting  
-6.4 Injection Attacks  
-6.5 User uploads  
-6.6 Tamper-proof user inputs
-7. Plaintext != Encoding != Encryption != Hashing  
-7.1 Common encoding schemes  
-7.2 Encryption  
-7.3 Hashing & One way functions  
-7.4 Hashing speeds cheatsheet
-8. Passwords: dadada, 123456 and cute@123  
-8.1 Password policies  
-8.2 Storing passwords  
-8.3 Life without passwords
-9. Public Key Cryptography
-10. Sessions: Remember me, please  
-10.1 Where to save state?  
-10.2 Invalidating sessions  
-10.3 Cookie monster & you
-11. Fixing security, one header at a time  
-11.1 Secure web headers  
-11.2 Data integrity check for 3rd party code  
+6. 数据校验和过滤: 绝不信任用户输入  
+6.1 校验和过滤用户输入  
+6.2 过滤输出  
+6.3 跨站脚本攻击（XSS）    
+6.4 注入攻击    
+6.5 用户上传   
+6.6 用户篡改输入  
+7. 纯文本 != 编码 != 加密 != 哈希    
+7.1 通用编码模式    
+7.2 加密    
+7.3 哈希和单向函数（功能）    
+7.4 哈希速度对照表  
+8. 密码: dadada、123456、cute@123  
+8.1 密码策略  
+8.2 密码存储  
+8.3 没有密码的生活  
+9. 公钥加密 
+10. 会话: 请记住我   
+10.1 哪里存储状态？   
+10.2 使会话失效    
+10.3 Cookie怪物和你  
+11. 加固安全, 一次只有一个头信息    
+11.1 安全的web header    
+11.2 第三方代码的数据集成检测    
 11.3 Certificate Pinning
 12. Configuration mistakes    
 12.1 Provisioning in cloud: Ports, Shodan & AWS  
