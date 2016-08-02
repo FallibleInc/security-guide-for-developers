@@ -1,18 +1,18 @@
-[Back to Contents](README.md)
+[返回目录](README-zh.md)
 
 
-### The Security Checklist 
+### 安全checklist   
 
-##### AUTHENTICATION SYSTEMS (Signup/Signin/2 Factor/Password reset) 
-- [ ] Use HTTPS everywhere.
-- [ ] Store password hashes using `Bcrypt` (no salt necessary - `Bcrypt` does it for you).
-- [ ] Destroy the session identifier after `logout`.  
-- [ ] Destroy all active sessions on reset password (or offer to).  
-- [ ] Must have the `state` parameter in OAuth2.
-- [ ] No open redirects after successful login or in any other intermediate redirects.
-- [ ] When parsing Signup/Login input, sanitize for javascript://, data://, CRLF characters. 
-- [ ] Set secure, httpOnly cookies.
-- [ ] In Mobile `OTP` based mobile verification, do not send the OTP back in the response when `generate OTP` or `Resend OTP`  API is called.
+##### 权限系统 (注册/注册/两步验证/密码重置) 
+- [ ] 任何地方都使用HTTPS.
+- [ ] 使用`Bcrypt`存储密码哈希 (没有使用盐的必要 - `Bcrypt` 干的就是这个事情).
+- [ ] `登出`之后销毁会话ID .  
+- [ ] 密码重置后销毁所有活跃的会话.  
+- [ ] OAuth2 验证必须包含 `state` 参数.
+- [ ] 登陆成功之后不能直接重定向到开放的路径（需要校验，否则容易存在钓鱼攻击）.
+- [ ] 当解析用户注册/登陆的输入时，过滤 javascript://、 data:// 以及其他 CRLF 字符. 
+- [ ] 使用 secure/httpOnly cookies.
+- [ ] 移动端使用`OTP`验证时，当调用`generate OTP` 或者 `Resend OTP` API时不能吧OTP（One Time Password）直接返回。（一般是通过发送手机验证短信，邮箱随机code等方式，而不是直接response）  
 - [ ] Limit attempts to `Login`, `Verify OTP`, `Resend OTP` and `generate OTP` APIs for a particular user. Have an exponential backoff set or/and something like a captcha based challenge.
 - [ ] Check for randomness of reset password token in the emailed link or SMS.
 - [ ] Set an expiration on the reset password token for a reasonable period.
