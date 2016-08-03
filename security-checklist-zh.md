@@ -19,7 +19,7 @@
 - [ ] 重置密码成功后，将重置使用的token失效.
 
 
-##### USER DATA & AUTHORIZATION
+##### 用户数据和权限校验  
 - [ ] 诸如`我的购物车`、`我的浏览历史`之类的资源访问，必须检查当前登录的用户是否有这些资源的访问权限。  
 - [ ] 避免资源ID被连续遍历访问，使用`/me/orders` 代替 `/user/37153/orders` 以防你忘了检查权限，导致数据泄露。   
 - [ ] `修改邮箱/手机号码`功能必须首先确认用户已经验证过邮箱/手机是他自己的。  
@@ -29,7 +29,7 @@
 - [ ] [JWT（JSON Web Token）](https://jwt.io/)很棒.当你需要做一个单页应用/API的使用使用.  
 
 
-##### ANDROID / IOS APP
+##### 安卓和iOS APP
 - [ ] 支付网关的 `盐（salt）` 不应该硬编码  
 - [ ] 来自第三方的 `secret` 和 `auth token` 不应该硬编码  
 - [ ] 在服务器之间调用的API不应该在app里面调用  
@@ -38,20 +38,20 @@
 - [ ] 强烈推荐[证书绑定（Certificate pinning）](https://en.wikipedia.org/wiki/HTTP_Public_Key_Pinning)   
 
 
-##### SECURITY HEADERS & CONFIGURATIONS
-- [ ] `Add` [CSP](https://en.wikipedia.org/wiki/Content_Security_Policy) header to mitigate XSS and data injection attacks. This is important.
-- [ ] `Add` [CSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery) header to prevent cross site request forgery. Also add [SameSite](https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site-00) attributes on cookies.
-- [ ] `Add` [HSTS](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security) header to prevent SSL stripping attack.
-- [ ] `Add` your domain to the [HSTS Preload List](https://hstspreload.appspot.com/)
-- [ ] `Add` [X-Frame-Options](https://en.wikipedia.org/wiki/Clickjacking#X-Frame-Options) to protect against Clickjacking.
-- [ ] `Add` [X-XSS-Protection](https://www.owasp.org/index.php/OWASP_Secure_Headers_Project#X-XSS-Protection) header to mitigate XSS attacks.
-- [ ] Update DNS records to add [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) record to mitigate spam and phishing attacks.
-- [ ] Add [subresource integrity checks](https://en.wikipedia.org/wiki/Subresource_Integrity) if loading your JavaScript libraries from a third party CDN. For extra security, add the [require-sri-for](https://w3c.github.io/webappsec-subresource-integrity/#parse-require-sri-for) CSP-directive so you don't load resources that don't have an SRI sat.  
-- [ ] Use random CSRF tokens and expose business logic APIs as HTTP POST requests. Do not expose CSRF tokens over HTTP for example in an initial request upgrade phase.
-- [ ] Do not use critical data or tokens in GET request parameters. Exposure of server logs or a machine/stack processing them would expose user data in turn.  
+##### 安全头信息和配置  
+- [ ] `添加` [CSP](https://en.wikipedia.org/wiki/Content_Security_Policy) 头信息，减缓 XSS 和数据注入攻击. 这很重要.  
+- [ ] `添加` [CSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery) 头信息防止跨站请求调用（CSRF）攻击.同时`添加` [SameSite](https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site-00) 属性到cookie里面.  
+- [ ] `添加` [HSTS](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security) 头信息防止SSL stripping攻击.
+- [ ] `添加` 你的域名到 [HSTS 预加载列表](https://hstspreload.appspot.com/)
+- [ ] `添加` [X-Frame-Options](https://en.wikipedia.org/wiki/Clickjacking#X-Frame-Options) 防止点击劫持.  
+- [ ] `添加` [X-XSS-Protection](https://www.owasp.org/index.php/OWASP_Secure_Headers_Project#X-XSS-Protection) 缓解XSS攻击.  
+- [ ] `更新`DNS记录，增加 [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) 记录防止垃圾邮件和钓鱼攻击.  
+- [ ] 如果你的Javascript 库存放在第三方的CDN上面，需要`添加` [内部资源集成检查](https://en.wikipedia.org/wiki/Subresource_Integrity) 。为了更加安全，添加[require-sri-for](https://w3c.github.io/webappsec-subresource-integrity/#parse-require-sri-for) CSP-directive 就不会加载到没有SRI的资源。  
+- [ ] 使用随机的CSRF token，业务逻辑API可以暴露为POST请求。不要把CSRF token通过http接口暴露出来比如第一次请求更新的时候。  
+- [ ] 在get请求参数里面，不要使用临界数据和token。 暴露服务器日志的同时也会暴露用户数据。
   
   
-##### SANITIZATION OF INPUT
+##### 过滤输入  
 - [ ] `Sanitize` all user inputs or any input parameters exposed to user to prevent [XSS](https://en.wikipedia.org/wiki/Cross-site_scripting).
 - [ ] Always use parameterized queries to prevent [SQL Injection](https://en.wikipedia.org/wiki/SQL_injection).  
 - [ ] Sanitize user input if using it directly for functionalities like CSV import.
@@ -60,7 +60,7 @@
 - [ ] Sanitize inputs that take some sort of URLs to prevent [SSRF](https://docs.google.com/document/d/1v1TkWZtrhzRLy0bYXBcdLUedXGb9njTNIJXa3u9akHM/edit#heading=h.t4tsk5ixehdd).
 - [ ] Sanitize Outputs before displaying to users.
 
-##### OPERATIONS
+##### 操作  
 - [ ] If you are small and inexperienced, evaluate using AWS elasticbeanstalk or a PaaS to run your code.
 - [ ] Use a decent provisioning script to create VMs in the cloud.
 - [ ] Check for machines with unwanted publicly `open ports`.
@@ -73,7 +73,7 @@
 - [ ] Set up monitoring for your systems, and log stuff (use [New Relic](https://newrelic.com/) or something like that).
 - [ ] If developing for enterprise customers, adhere to compliance requirements. If AWS S3, consider using the feature to [encrypt data](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html). If using AWS EC2, consider using the feature to use encrypted volumes (even boot volumes can be encrypted now).
 
-##### PEOPLE
+##### 人  
 - [ ] Set up an email (e.g. security@coolcorp.io) and a page for security researchers to report vulnerabilities.
 - [ ] Depending on what you are making, limit access to your user databases.
 - [ ] Be polite to bug reporters.
