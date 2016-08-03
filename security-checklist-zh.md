@@ -26,16 +26,16 @@
 - [ ] 任何上传功能应该过滤用户上传的文件名，另外，为了普适性的原因（而不是安全问题），上传的东西应该存放到例如S3之类的云存储上面，而不是存储在这几的服务器，防止代码执行。  
 - [ ] `个人头像上传` 功能应该过滤所有的 `EXIF` 标签，即便没有这个需求.  
 - [ ] 用户ID或者其他的ID，应该使用 [RFC compliant ](http://www.ietf.org/rfc/rfc4122.txt) 的`UUID` 而不是整数. 你可以从github找到你所用的语言的实现.  
-- [ ] JWT（JSON Web Token）很棒.当你需要做一个单页应用/API的使用使用.  
+- [ ] [JWT（JSON Web Token）](https://jwt.io/)很棒.当你需要做一个单页应用/API的使用使用.  
 
 
 ##### ANDROID / IOS APP
-- [ ] `salt` from payment gateways should not be hardcoded.
-- [ ] `secret` / `auth token` from 3rd party SDK's should not be hardcoded.
-- [ ] API calls intended to be done `server to server` should not be done from the app.
-- [ ] In Android, all the granted  [permissions](https://developer.android.com/guide/topics/security/permissions.html) should be carefully evaluated.
-- [ ] On iOS, store sensitive information (authentication tokens, API keys, etc.) in the system keychain. Do __not__ store this kind of information in the user defaults.
-- [ ] [Certificate pinning](https://en.wikipedia.org/wiki/HTTP_Public_Key_Pinning) is highly recommended.
+- [ ] 支付网关的 `盐（salt）` 不应该硬编码  
+- [ ] 来自第三方的 `secret` 和 `auth token` 不应该硬编码  
+- [ ] 在服务器之间调用的API不应该在app里面调用  
+- [ ] 在安卓系统下，要小心评估所有申请的 [权限](https://developer.android.com/guide/topics/security/permissions.html)   
+- [ ] 在iOS系统下，使用系统的钥匙串来存储敏感信息（权限token，api key等等）。 __不要__ 把这类信息存储在用户配置里面  
+- [ ] 强烈推荐[证书绑定（Certificate pinning）](https://en.wikipedia.org/wiki/HTTP_Public_Key_Pinning)   
 
 
 ##### SECURITY HEADERS & CONFIGURATIONS
