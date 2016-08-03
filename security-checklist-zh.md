@@ -23,10 +23,10 @@
 - [ ] 诸如`我的购物车`、`我的浏览历史`之类的资源访问，必须检查当前登录的用户是否有这些资源的访问权限。  
 - [ ] 避免资源ID被连续遍历访问，使用`/me/orders` 代替 `/user/37153/orders` 以防你忘了检查权限，导致数据泄露。   
 - [ ] `修改邮箱/手机号码`功能必须首先确认用户已经验证过邮箱/手机是他自己的。  
-- [ ] Any upload feature should sanitize the filename provided by the user. Also, for generally reasons apart from security, upload to something like S3 (and post-process using lambda) and not your own server capable of executing code.  
-- [ ] `Profile photo upload` feature should sanitize all the `EXIF` tags also if not required.
-- [ ] For user ids and other ids, use [RFC compliant ](http://www.ietf.org/rfc/rfc4122.txt) `UUID` instead of integers. You can find an implementation for this for your language on Github.
-- [ ] JWT are awesome. Use them if required for your single page app/APIs.
+- [ ] 任何上传功能应该过滤用户上传的文件名，另外，为了普适性的原因（而不是安全问题），上传的东西应该存放到例如S3之类的云存储上面，而不是存储在这几的服务器，防止代码执行。  
+- [ ] `个人头像上传` 功能应该过滤所有的 `EXIF` 标签，即便没有这个需求.  
+- [ ] 用户ID或者其他的ID，应该使用 [RFC compliant ](http://www.ietf.org/rfc/rfc4122.txt) 的`UUID` 而不是整数. 你可以从github找到你所用的语言的实现.  
+- [ ] JWT（JSON Web Token）很棒.当你需要做一个单页应用/API的使用使用.  
 
 
 ##### ANDROID / IOS APP
