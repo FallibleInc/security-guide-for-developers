@@ -20,9 +20,9 @@
 
 
 ##### USER DATA & AUTHORIZATION
-- [ ] Any resource access like, `my cart`, `my history` should check the logged in user's ownership of the resource using session id.
-- [ ] Serially iterable resource id should be avoided. Use `/me/orders` instead of `/user/37153/orders`. This acts as a sanity check in case you forgot to check for authorization token. 
-- [ ] `Edit email/phone number` feature should be accompanied by a verification email to the owner of the account. 
+- [ ] 诸如`我的购物车`、`我的浏览历史`之类的资源访问，必须检查当前登录的用户是否有这些资源的访问权限。  
+- [ ] 避免资源ID被连续遍历访问，使用`/me/orders` 代替 `/user/37153/orders` 以防你忘了检查权限，导致数据泄露。   
+- [ ] `修改邮箱/手机号码`功能必须首先确认用户已经验证过邮箱/手机是他自己的。  
 - [ ] Any upload feature should sanitize the filename provided by the user. Also, for generally reasons apart from security, upload to something like S3 (and post-process using lambda) and not your own server capable of executing code.  
 - [ ] `Profile photo upload` feature should sanitize all the `EXIF` tags also if not required.
 - [ ] For user ids and other ids, use [RFC compliant ](http://www.ietf.org/rfc/rfc4122.txt) `UUID` instead of integers. You can find an implementation for this for your language on Github.
