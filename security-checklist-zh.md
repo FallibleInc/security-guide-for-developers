@@ -54,11 +54,11 @@
 ##### 过滤输入  
 - [ ] 所有暴露给用户的参数输入都应该 `过滤` 防止 [XSS](https://en.wikipedia.org/wiki/Cross-site_scripting) 攻击.
 - [ ] 使用参数化的查询防止 [SQL 注入](https://en.wikipedia.org/wiki/SQL_injection).  
-- [ ] Sanitize user input if using it directly for functionalities like CSV import.
-- [ ] `Sanitize` user input for special cases like robots.txt as profile names in case you are using a url pattern like coolcorp.io/username. 
-- [ ] Do not hand code or build JSON by string concatenation ever, no matter how small the object is. Use your language defined libraries or framework.
-- [ ] Sanitize inputs that take some sort of URLs to prevent [SSRF](https://docs.google.com/document/d/1v1TkWZtrhzRLy0bYXBcdLUedXGb9njTNIJXa3u9akHM/edit#heading=h.t4tsk5ixehdd).
-- [ ] Sanitize Outputs before displaying to users.
+- [ ] 过滤所有具有功能性的用户输入，比如`CSV导入`    
+- [ ] `过滤`一些特殊的用户输入，例如将robots.txt作为用户名，而你刚好提供了 coolcorp.io/username 之类的url来提供用户信息访问页面。（此时变成 coolcorp.io/robots.txt，可能无法正常工作）  
+- [ ] 不要自己手动拼装JSON字符串，不管这个字符串有多么小。请使用你所用的语言相应的库或者框架来编写。  
+- [ ] `过滤` 那些有点像URL的输入，防止 [SSRF](https://docs.google.com/document/d/1v1TkWZtrhzRLy0bYXBcdLUedXGb9njTNIJXa3u9akHM/edit#heading=h.t4tsk5ixehdd) 攻击  
+- [ ] 输出显示给用户之前需要`过滤`，防止XSS攻击.
 
 ##### 操作  
 - [ ] If you are small and inexperienced, evaluate using AWS elasticbeanstalk or a PaaS to run your code.
@@ -73,7 +73,7 @@
 - [ ] Set up monitoring for your systems, and log stuff (use [New Relic](https://newrelic.com/) or something like that).
 - [ ] If developing for enterprise customers, adhere to compliance requirements. If AWS S3, consider using the feature to [encrypt data](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html). If using AWS EC2, consider using the feature to use encrypted volumes (even boot volumes can be encrypted now).
 
-##### 人  
+##### 关于人  
 - [ ] Set up an email (e.g. security@coolcorp.io) and a page for security researchers to report vulnerabilities.
 - [ ] Depending on what you are making, limit access to your user databases.
 - [ ] Be polite to bug reporters.
