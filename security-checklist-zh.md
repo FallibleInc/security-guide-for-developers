@@ -5,7 +5,7 @@
 
 ##### 权限系统 (注册/注册/二次验证/密码重置) 
 - [ ] 任何地方都使用HTTPS.
-- [ ] 使用`Bcrypt`存储密码哈希 (没有使用盐的必要 - `Bcrypt` 干的就是这个事情).
+- [ ] 使用`Bcrypt`存储密码哈希 (没有使用盐的必要 - `Bcrypt` 干的就是加密这个事情).
 - [ ] `登出`之后销毁会话ID .  
 - [ ] 密码重置后销毁所有活跃的会话.  
 - [ ] OAuth2 验证必须包含 `state` 参数.
@@ -61,22 +61,22 @@
 - [ ] 输出显示给用户之前需要`过滤`，防止XSS攻击.
 
 ##### 操作  
-- [ ] If you are small and inexperienced, evaluate using AWS elasticbeanstalk or a PaaS to run your code.
-- [ ] Use a decent provisioning script to create VMs in the cloud.
-- [ ] Check for machines with unwanted publicly `open ports`.
-- [ ] Check for no/default passwords for `databases` especially MongoDB & Redis.
-- [ ] Use SSH to access your machines; do not setup a password, use SSH key-based authentication instead.
-- [ ] Install updates timely to act upon zero day vulnerabilities like Heartbleed, Shellshock.
-- [ ] Modify server config to use TLS 1.2 for HTTPS and disable all other schemes. (The tradeoff is good.)
-- [ ] Do not leave the DEBUG mode on. In some frameworks, DEBUG mode can give access full-fledged REPL or shells or expose critical data in error messages stacktraces.
-- [ ] Be prepared for bad actors & DDOS - use a hosting service that has DDOS mitigation.
-- [ ] Set up monitoring for your systems, and log stuff (use [New Relic](https://newrelic.com/) or something like that).
-- [ ] If developing for enterprise customers, adhere to compliance requirements. If AWS S3, consider using the feature to [encrypt data](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html). If using AWS EC2, consider using the feature to use encrypted volumes (even boot volumes can be encrypted now).
+- [ ] 如果你的业务很小或者你缺乏经验，可以评估一下使用AWS或者一个PaaS平台来运行你的代码  
+- [ ] 在云上使用正规的脚本创建虚拟结  
+- [ ] 检查所有机器没有必要开放的`端口`  
+- [ ] 检查数据库是否没有密码或者使用默认密码，特别是MongoDB和Redis  
+- [ ] 使用SSH登录你的机器，不要使用密码，而是使用 SSH key 验证来登录  
+- [ ] 及时更新系统，防止出现0day漏洞，比如Heartbleed、Shellshock等  
+- [ ] 修改服务器配置，HTTPS使用TLS1.2，禁用其他的模式。(值得这么做)
+- [ ] 不要在线上开启DEBUG模式，有些框架，DEBUG模式会开启很多权限或者后门，或者爆楼一些敏感数据到错误栈信息里面  
+- [ ] 对坏人和DDOS攻击要有所准备，选择那些提供DDOS清洗的主机服务  
+- [ ] 监控你的系统，同时写到日志里面 (例如使用 [New Relic](https://newrelic.com/) ).
+- [ ] 如果是2B的业务，坚持顺从需求。如果使用AWS S3,可以考虑使用 [数据加密](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html) 功能. 如果使用AWS EC2，考虑使用磁盘加密功能（现在系统启动盘也能加密了）  
 
 ##### 关于人  
-- [ ] Set up an email (e.g. security@coolcorp.io) and a page for security researchers to report vulnerabilities.
-- [ ] Depending on what you are making, limit access to your user databases.
-- [ ] Be polite to bug reporters.
-- [ ] Have your code review done by a fellow developer from a secure coding perspective. (More eyes)
-- [ ] In case of a hack or data breach, check previous logs for data access, ask people to change passwords. You might require an audit by external agencies depending on where you are incorporated.  
-- [ ] Set up [Netflix's Scumblr](https://github.com/Netflix/Scumblr) to hear about talks about your organization on social platforms and Google search.
+- [ ] 开一个邮件组和搜集页面，方便安全研究人员提交漏洞  
+- [ ] 信任你所创造的东西，限制用户数据库的访问  
+- [ ] 对报告bug、漏洞的人有礼貌
+- [ ] 将你的代码给那些有安全编码观念的同伴review (More eyes)
+- [ ] 出现被黑或者数据泄露是，检查数据访问前的日志，让相关的人改密码。你可能需要外部的机构来帮助审计  
+- [ ] 设置 [Netflix Scumblr](https://github.com/Netflix/Scumblr) 及时了解你的组织（公司）在社交网络或者搜索引擎上的一些讨论信息  
