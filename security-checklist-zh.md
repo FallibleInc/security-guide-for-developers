@@ -79,4 +79,4 @@
 - [ ] 对报告bug、漏洞的人有礼貌
 - [ ] 将你的代码给那些有安全编码观念的同伴review (More eyes)
 - [ ] 出现被黑或者数据泄露是，检查数据访问前的日志，让相关的人改密码。你可能需要外部的机构来帮助审计  
-- [ ] 设置 [Netflix Scumblr](https://github.com/Netflix/Scumblr) 及时了解你的组织（公司）在社交网络或者搜索引擎上的一些讨论信息  
+- [ ] 使用 [Netflix Scumblr](https://github.com/Netflix/Scumblr) 及时了解你的组织（公司）在社交网络或者搜索引擎上的一些讨论信息，比如黑客攻击、漏洞等等。    
