@@ -3,80 +3,76 @@
 
 ### Hackerone 公开bug统计  
 
-目前为止，Hackerone平台已经发现1731个公开的bug，主要来自 Twitter、Uber、Dropbox、Github 等公司。其中8个bug已经删除，9个bug来自互联网或者特定的语言，剩下的1714歌，
-At the time of writing, the Hackerone platform had 1731 publicly disclosed bugs in companies such as Twitter, Uber, Dropbox, Github etc.
-8 of the bugs were removed as outright spam. 9 others were related to bugs in the Internet or a specific programming language. Out of the remaining 1714, we were able to classify 1359 issues using some code and manual work.
-
-    
+目前为止，Hackerone平台已经发现1731个公开的漏洞，主要来自 Twitter、Uber、Dropbox、Github 等公司。其中8个已经删除，9个来自互联网或者特定的语言，剩下的1714个中，有1359个我们可以通过代码或者人工的方式进行分类。  
     
 
-#### Issues by type of mistake
+#### 按照错误的类型划分  
 
 
-| Classification | Count | Percentage |
+| 类型 | 数量 | 占比 |
 | --- | --- |  --- |
-| User Input Sanitization        | 481      | 27.8
-| Other code issues              | 549      | 31.7
-| Configuration issues           | 325      | 18.8
-| Unclassified+Info+Junk         | 376      | 21.7
+| 用户输入过滤        | 481      | 27.8
+| 其他代码问题              | 549      | 31.7
+| 配置问题           | 325      | 18.8
+| 我发归类+信息+垃圾         | 376      | 21.7
 
 
-#### Issues sorted by their frequency of occurrence
+#### 按照发生的频率排序  
 
-1 out of 3 issues were related to XSS, Insecure references to data (data leak) or missing CSRF token. The [Hackerone page](https://hackerone.com/hacktivity/new) listing these issues is quite interesting and can be read.
+1/3的问题与 XSS 有关, 非安全的数据引用 (数据泄露) 或者忘记设置 CSRF token. 这个 [页面](https://hackerone.com/hacktivity/new) 列举的这些问题非常有趣，值得一读.  
 
-Type|Count|Percentage
+类型|数量|占比
 | --- | --- | --- |
 XSS|375|21.87
-Insecure reference + Data Leak|104|6.06
+非安全引用 + 数据泄露|104|6.06
 CSRF Token|99|5.77
-Open Redirects|59|3.44
-Information/Source Code Disclosure|57|3.32
-DNS misconfiguration + Apache/Nginx + Subdomain Takeover + Open AWS_S3|44|2.56
-Improper Session management/Fixation|39|2.27
+开放的重定向|59|3.44
+信息/源代码泄露|57|3.32
+DNS 配置错误 + Apache/Nginx + 子域名接管 + Open AWS_S3|44|2.56
+不正确的session管理/固定|39|2.27
 TLS/SSL/POODLE/Heartbleed|39|2.27
-HTML/JS/XXE/Content Injections|37|2.15
-HTTP Header Issues|34|1.98
-NULL POINTER + SEGFAULT + Using memory after free()|33|1.92
-DMARC/DKIM/SPF settings for Mail|31|1.8
-SQL Injection|28|1.63
-Clickjacking|27|1.57
-Improper Cookies (secure/httpOnly/exposed)|25|1.45
-Path disclosure|25|1.45
-Broken/Open Authentication|24|1.4
-Brute Force attacks|24|1.4
-Content Spoofing|20|1.16
-Buffer overflow|20|1.16
-Denial Of Service|19|1.1
-Server Side Request Forgery|18|1.05
-Adobe Flash vulnerabilities|18|1.05
-User/Info Enumeration|17|0.99
-Remote Code Execution|15|0.87
-Password reset token expiration/attempts/others|13|0.75
-Integer overflow|11|0.64
-Version Disclosure|11|0.64
-CSV Injection|10|0.58
-Privilege Escalation|9|0.52
-OAuth state/leaks and other issues|9|0.52
-Password Policy|7|0.4
+HTML/JS/XXE/内容注入|37|2.15
+HTTP 头信息问题|34|1.98
+空指针 + 段错误 + 在free()之后使用内存|33|1.92
+DMARC/DKIM/邮件SPF设置|31|1.8
+SQL 注入|28|1.63
+点击劫持|27|1.57
+不正确的cookie使用 (secure/httpOnly/暴露)|25|1.45
+路径暴露|25|1.45
+开放权限|24|1.4
+暴力破解|24|1.4
+内容欺诈|20|1.16
+缓冲区溢出|20|1.16
+拒绝服务|19|1.1
+服务端请求伪造|18|1.05
+Adobe Flash 漏洞|18|1.05
+用户/信息 枚举|17|0.99
+远程代码执行|15|0.87
+密码重置 token 过期/尝试/其他|13|0.75
+整型溢出|11|0.64
+版本泄露|11|0.64
+CSV 注入|10|0.58
+权限放大|9|0.52
+OAuth 状态/泄露和其他问题|9|0.52
+密码策略|7|0.4
 CRLF|7|0.4
-PythonLang|6|0.35
-Homograph attack|6|0.35
-File upload type/size/location sanitize|6|0.35
-Captcha bypass|5|0.29
-Remote/Local File inclusion|4|0.23
-Directory listing|4|0.23
-Path traversal|4|0.23
-Remote File Upload|4|0.23
-Autocomplete enabled|4|0.23
-Leak through referer|3|0.17
+python语言|6|0.35
+单向攻击|6|0.35
+文件上传类型/大小/存储位置 过滤|6|0.35
+Captcha|5|0.29
+远程/本地 文件包含|4|0.23
+目录列表|4|0.23
+路径遍历|4|0.23
+远程文件上传|4|0.23
+（WEB表单）开启自动填充|4|0.23
+通过引用泄露|3|0.17
 Pixel Flood Attack|3|0.17
-Control Chars in Input|2|0.11
+输入控制字符|2|0.11
 
 
-### Some unique vulnerability types
+### 一些唯一的漏洞类型
 
-1. Race conditions based vulnerabilities
+1. 竞态条件漏洞
 2. Pixel Flood Attack
 3. IDN Homograph Attack
-4. Control Characters in Input leading to interesting outcomes
+4. 输入控制字符后输入一些有趣的东西
