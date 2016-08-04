@@ -66,7 +66,7 @@
 13.2 跨站请求伪造    
 13.3 拒绝服务    
 13.4 服务端请求伪造  
-14. [Stats about vulnerabilities discovered in Internet Companies](vulnerabilities-stats.md)   
+14. [互联网公司漏洞统计](vulnerabilities-stats.md)   
 15. 重造轮子，但做出来是方的    
 15.1 Python的安全库和包    
 15.2 NodeJS的安全库和包  
