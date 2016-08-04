@@ -3,7 +3,7 @@
 
 ### Hackerone 公开bug统计  
 
-目前为止，Hackerone平台已经发现1731个公开的bug，主要来这 Twitter、Uber、Dropbox、Github 等公司。
+目前为止，Hackerone平台已经发现1731个公开的bug，主要来自 Twitter、Uber、Dropbox、Github 等公司。其中8个bug已经删除，9个bug来自互联网或者特定的语言，剩下的1714歌，
 At the time of writing, the Hackerone platform had 1731 publicly disclosed bugs in companies such as Twitter, Uber, Dropbox, Github etc.
 8 of the bugs were removed as outright spam. 9 others were related to bugs in the Internet or a specific programming language. Out of the remaining 1714, we were able to classify 1359 issues using some code and manual work.
 
