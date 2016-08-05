@@ -68,7 +68,7 @@
 - [ ] 使用SSH登录你的机器，不要使用密码，而是使用 SSH key 验证来登录  
 - [ ] 及时更新系统，防止出现0day漏洞，比如Heartbleed、Shellshock等  
 - [ ] 修改服务器配置，HTTPS使用TLS1.2，禁用其他的模式。(值得这么做)
-- [ ] 不要在线上开启DEBUG模式，有些框架，DEBUG模式会开启很多权限或者后门，或者爆楼一些敏感数据到错误栈信息里面  
+- [ ] 不要在线上开启DEBUG模式，有些框架，DEBUG模式会开启很多权限或者后门，或者暴露一些敏感数据到错误栈信息里面  
 - [ ] 对坏人和DDOS攻击要有所准备，选择那些提供DDOS清洗的主机服务  
 - [ ] 监控你的系统，同时写到日志里面 (例如使用 [New Relic](https://newrelic.com/) ).
 - [ ] 如果是2B的业务，坚持顺从需求。如果使用AWS S3,可以考虑使用 [数据加密](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html) 功能. 如果使用AWS EC2，考虑使用磁盘加密功能（现在系统启动盘也能加密了）  
