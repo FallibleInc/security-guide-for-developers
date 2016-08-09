@@ -23,3 +23,7 @@ The owner of the cafe or your boss in your office can see your data by programmi
 ![https](/img/https.gif) 
 
 The 'S' in HTTPS stands for Secure i.e. if you are visiting any website on the internet that has the protocol `https` in the URI, then it is most likely secure. No one in the `middle` can sniff your traffic.
+
+### How to get HTTPS as the owner of a website
+### Precautions for general public
+### Future of HTTPS
