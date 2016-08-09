@@ -1,21 +1,23 @@
 ### Securely transporting stuff: HTTPS explained
 
 
-#### The problem
+### The problem
 The problem with HTTP without any S is that it sends and receives data in plain text. 
 
-Well, who can see my data in plain text?
+`Well, who can see my data in plain text?`
+
 Well, anyone in your local network, your co-workers for example or people sitting around in your favourite cåfe. 
 
-How will they do it?
+`How will they do it?`
+
 They can tell the `switch` to deliver packets to their machine instead of yours by [ARP poisioning](https://en.wikipedia.org/wiki/ARP_spoofing). 
 
-The owner of the cafe or your boss in your office can see your data by programming the hub/switch easily since they own and have physical access to it or the wire itself coming in to the cafe.
+The owner of the cafe or your boss in your office can see your data by programming the hub/switch easily since they own and have physical access to it or [wire tapping](https://en.wikipedia.org/wiki/Fiber_tapping) the wire itself coming in to the cafe.
 
-**Bad HTTP.**
+**Bad HTTP!**
 
 
-#### Enters HTTPS
+### Enters HTTPS
 
 ![https](/img/https.gif) 
 
