@@ -46,7 +46,9 @@ To solve that problem browser like Chrome, Firefox, Safari etc. come embedded wi
        ```
 
 - [ ] support only TLSv1.1 and TLSv1.2. Do not support sslv2 and sslv3
-       `ssl_protocols TLSv1.1 TLSv1.2;`
+       ```
+	ssl_protocols TLSv1.1 TLSv1.2;
+	```
 
 - [ ] do not use the default Diffie-Hellman parameter, locally generate param for more security
 	```shell
@@ -59,7 +61,9 @@ To solve that problem browser like Chrome, Firefox, Safari etc. come embedded wi
 	```
        
 - [ ] config to enable HSTS(HTTP Strict Transport Security) to avoid [ssl stripping](https://en.wikipedia.org/wiki/SSL_stripping#SSL_stripping). This should not be a problem if ALL, yes, if ALL traffic is redirected to https
-       ```add_header Strict-Transport-Security "max-age=31536000; includeSubdomains;";```
+       ```
+	add_header Strict-Transport-Security "max-age=31536000; includeSubdomains;";
+       ```
 
 ### Certificate Pinning for apps
 TODO
