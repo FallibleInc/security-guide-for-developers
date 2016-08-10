@@ -13,7 +13,7 @@
 - [ ] 当解析用户注册/登陆的输入时，过滤 javascript://、 data:// 以及其他 CRLF 字符.
 - [ ] 使用 secure/httpOnly cookies.
 - [ ] 移动端使用 `OTP` 验证时，当调用 `generate OTP` 或者 `Resend OTP` API 时不能把 OTP（One Time Password） 直接返回。（一般是通过发送手机验证短信，邮箱随机 code 等方式，而不是直接 response）  
-- [ ] 限制单个用户 `Login`、`Verify OTP`、 `Resend OTP`、`generate OTP` 等 API 的调用次数，使用 Captcha 等手段防止暴力破解.  
+- [ ] 限制单个用户 `Login`、`Verify OTP`、 `Resend OTP`、`generate OTP` 等 API 的调用次数，使用 Captcha(验证码) 等手段防止暴力破解.  
 - [ ] 检查邮件或短信里的重置密码的 token，确保随机性（无法猜测）  
 - [ ] 给重置密码的 token 设置过期时间.
 - [ ] 重置密码成功后，将重置使用的 token 失效.
