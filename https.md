@@ -35,43 +35,56 @@ To solve that problem browser like Chrome, Firefox, Safari etc. come embedded wi
 
 ### How to get HTTPS for my website?
 
-Best practices for https configuration
-```
-# server-side protection from BEAST attacks
-       ssl_prefer_server_ciphers on;
+#### Best practices for https configuration, examples is for [nginx](https://www.nginx.com/) but settings for apache are available too ([mod_ssl](https://httpd.apache.org/docs/current/mod/mod_ssl.html) & [mod_headers](http://httpd.apache.org/docs/current/mod/mod_headers.html))
+- [ ] update [openssl](https://www.openssl.org/source/) to the latest version available
+- [ ] server-side protection from [BEAST attacks](https://en.wikipedia.org/wiki/Transport_Layer_Security#BEAST_attack)
+       ```
+       ssl_prefer_server_ciphers on;`
 
        ssl_ciphers "ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4"; #Disables all weak ciphers
-#
-       ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-#       ssl_ciphers "HIGH:!aNULL:!MD5 or HIGH:!aNULL:!MD5:!3DES";
+       ```
 
-       # Diffie-Hellman parameter, locally generated non-default param for more security
-#       ssl_dhparam /etc/nginx/ssl/dhparam.pem;
+- [ ] support only TLSv1.1 and TLSv1.2. Do not support sslv2 and sslv3
+       `ssl_protocols TLSv1.1 TLSv1.2;`
 
-       ##### SECURITY
-       # don't send the nginx version number in error pages and Server header
-       server_tokens off;
+- [ ] do not use the default Diffie-Hellman parameter, locally generate param for more security
+	```shell
+	cd /etc/ssl/certs
+	openssl dhparam -out dhparam.pem 4096
+	```
+       
+       ```
+       ssl_dhparam /etc/nginx/ssl/dhparam.pem;
+	```
+       
+- [ ] don't send the nginx version number in error pages and Server header
+       ```
+	server_tokens off;
+	```
 
-	# avoid clickjacking
-       add_header X-Frame-Options SAMEORIGIN;
+- [ ] avoid clickjacking
+       ```
+	add_header X-Frame-Options SAMEORIGIN;
+	```
 
-       # don't allowing content type sniffing/guessing, combined with xss can be harmful
-       add_header X-Content-Type-Options nosniff;
+- [ ] don't allow content type sniffing/guessing, combined with xss, this can be harmful
+       ```
+	add_header X-Content-Type-Options nosniff;
+	```
 
 
-       # This header enables the Cross-site scripting (XSS) filter built into most recent web browsers.
-       # It's usually enabled by default anyway, so the role of this header is to re-enable the filter for
-       add_header X-XSS-Protection "1; mode=block";
+- [ ] This header enables the Cross-site scripting (XSS) filter built into most recent web browsers. It's usually enabled by default anyway, so the role of this header is to re-enable the filter in case someone disabled it.
+       ```
+	add_header X-XSS-Protection "1; mode=block";
+	```
 
-
-       # with Content Security Policy (CSP) enabled(and a browser that supports it(http://caniuse.com/#feat=contentsecuritypolicy),
-       # you can tell the browser that it can only download content from the domains you explicitly allow
-       # http://www.html5rocks.com/en/tutorials/security/content-security-policy/
+- [ ]  with Content Security Policy (CSP) enabled you can tell the browser that it can only download content from the domains you explicitly allow, sample:
+       ```
        add_header Content-Security-Policy "default-src 'self'; script-src 'self' https://code.jquery.com https://overseer.fallible.co https://www.google-analytics.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com  https://overseer.fallible.co 'unsafe-inline'; font-src 'self' https://fallible.co https://code.ionicframework.com https://fonts.gstatic.com; img-src https://www.google-analytics.com https://overseer.fallible.co";
-       # config to enable HSTS(HTTP Strict Transport Security)
-       # to avoid ssl stripping https://en.wikipedia.org/wiki/SSL_stripping#SSL_stripping
-       # This should not be a problem if ALL, yes, if ALL traffic is redirected to https
-       add_header Strict-Transport-Security "max-age=31536000; includeSubdomains;";
-```
+       ```
+       
+- [ ] config to enable HSTS(HTTP Strict Transport Security) to avoid [ssl stripping](https://en.wikipedia.org/wiki/SSL_stripping#SSL_stripping). This should not be a problem if ALL, yes, if ALL traffic is redirected to https
+       ```add_header Strict-Transport-Security "max-age=31536000; includeSubdomains;";```
+
 ### Precautions for general public
 ### Future of HTTPS
