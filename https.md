@@ -34,6 +34,7 @@ There is still one problem with the above process, that is, any [man in the midd
 To solve that problem browser like Chrome, Firefox, Safari etc. come embedded with information to find out which certificates are genuine. Browsers look for signature in the certificate, the signature on the certificate needs to be from one of the certified certificate authorities. If there is no such signature in the certificate then the browser will display a warning to the user that this connection is not really HTTPS. The server on the other hand need to get the signed certificate from one of the certificate authority by physically verifying their identity(by sending docs etc.).
 
 ### How to get HTTPS for my website?
+#TODO
 
 #### Best practices for https configuration, examples is for [nginx](https://www.nginx.com/) but settings for apache are available too ([mod_ssl](https://httpd.apache.org/docs/current/mod/mod_ssl.html) & [mod_headers](http://httpd.apache.org/docs/current/mod/mod_headers.html))
 - [ ] update [openssl](https://www.openssl.org/source/) to the latest version available
@@ -57,34 +58,14 @@ To solve that problem browser like Chrome, Firefox, Safari etc. come embedded wi
        ssl_dhparam /etc/nginx/ssl/dhparam.pem;
 	```
        
-- [ ] don't send the nginx version number in error pages and Server header
-       ```
-	server_tokens off;
-	```
-
-- [ ] avoid clickjacking
-       ```
-	add_header X-Frame-Options SAMEORIGIN;
-	```
-
-- [ ] don't allow content type sniffing/guessing, combined with xss, this can be harmful
-       ```
-	add_header X-Content-Type-Options nosniff;
-	```
-
-
-- [ ] This header enables the Cross-site scripting (XSS) filter built into most recent web browsers. It's usually enabled by default anyway, so the role of this header is to re-enable the filter in case someone disabled it.
-       ```
-	add_header X-XSS-Protection "1; mode=block";
-	```
-
-- [ ]  with Content Security Policy (CSP) enabled you can tell the browser that it can only download content from the domains you explicitly allow, sample:
-       ```
-       add_header Content-Security-Policy "default-src 'self'; script-src 'self' https://code.jquery.com https://overseer.fallible.co https://www.google-analytics.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com  https://overseer.fallible.co 'unsafe-inline'; font-src 'self' https://fallible.co https://code.ionicframework.com https://fonts.gstatic.com; img-src https://www.google-analytics.com https://overseer.fallible.co";
-       ```
-       
 - [ ] config to enable HSTS(HTTP Strict Transport Security) to avoid [ssl stripping](https://en.wikipedia.org/wiki/SSL_stripping#SSL_stripping). This should not be a problem if ALL, yes, if ALL traffic is redirected to https
        ```add_header Strict-Transport-Security "max-age=31536000; includeSubdomains;";```
 
+### Certificate Pinning for apps
+TODO
+
 ### Precautions for general public
+#TODO
+
 ### Future of HTTPS
+#TODO
