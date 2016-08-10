@@ -1,7 +1,7 @@
-### Securely transporting stuff: HTTPS explained
+# Securely transporting stuff: HTTPS explained
 
 
-### The problem
+## The problem
 The problem with HTTP without any S is that it sends and receives data in plain text. 
 
 `Well, who can see my data in plain text?`
@@ -18,7 +18,7 @@ The owner of the cafe or your boss in your office can see your data by programmi
 **Bad HTTP!**
 
 
-### Enters HTTPS
+## Enters HTTPS
 
 ![https](/img/https.gif) 
 
@@ -34,7 +34,10 @@ There is still one problem with the above process, that is, any [man in the midd
 To solve that problem browser like Chrome, Firefox, Safari etc. come embedded with information to find out which certificates are genuine. Browsers look for signature in the certificate, the signature on the certificate needs to be from one of the certified certificate authorities. If there is no such signature in the certificate then the browser will display a warning to the user that this connection is not really HTTPS. The server on the other hand need to get the signed certificate from one of the certificate authority by physically verifying their identity(by sending docs etc.).
 
 ### How to get HTTPS for my website?
-#TODO
+#### There are two ways to get HTTPS to your website
+1. Paid 
+	* 
+2. Free
 
 #### Best practices for https configuration, examples is for [nginx](https://www.nginx.com/) but settings for apache are available too ([mod_ssl](https://httpd.apache.org/docs/current/mod/mod_ssl.html) & [mod_headers](http://httpd.apache.org/docs/current/mod/mod_headers.html))
 - [ ] update [openssl](https://www.openssl.org/source/) to the latest version available
@@ -66,7 +69,7 @@ To solve that problem browser like Chrome, Firefox, Safari etc. come embedded wi
        ```
 
 ### Certificate Pinning for apps
-TODO
+#TODO
 
 ### Precautions for general public
 #TODO
