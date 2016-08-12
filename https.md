@@ -43,9 +43,9 @@ To solve that problem browser like Chrome, Firefox, Safari etc. come embedded wi
 - [ ] regularly update/patch [openssl](https://www.openssl.org/source/) to the latest version available because that will protect you from bugs like [heartbleed](https://en.wikipedia.org/wiki/Heartbleed) and [many more](https://www.openssl.org/news/secadv/20160503.txt).
 - [ ] add this flag in nginx server conf for server-side protection from [BEAST attacks](https://en.wikipedia.org/wiki/Transport_Layer_Security#BEAST_attack)
        ```
-       ssl_prefer_server_ciphers on;`
+	ssl_prefer_server_ciphers on;`
 
-       ssl_ciphers "ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4"; #Disables all weak ciphers
+	ssl_ciphers "ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4"; #Disables all weak ciphers
        ```
 
 - [ ] Older versions of ssl protocols have been found to have multiple severe vulnerabilities, so support only TLSv1.1 and TLSv1.2. Do not support sslv2 and sslv3.
@@ -53,15 +53,15 @@ To solve that problem browser like Chrome, Firefox, Safari etc. come embedded wi
 	ssl_protocols TLSv1.1 TLSv1.2;
 	```
 
-- [ ] Default Diffie-Hellman parameter used by nginx is only 1024 bits and is considered not so secure, so do not use the default Diffie-Hellman parameter, locally generate the parameter for more security
+- [ ] Default Diffie-Hellman parameter used by nginx is only 1024 bits and is considered not so secure, so do not use the default DH parameter, locally generate the parameter for more security
 	```shell
-	cd /etc/ssl/certs
-	openssl dhparam -out dhparam.pem 4096
+	$ cd /etc/ssl/certs
+	$ openssl dhparam -out dhparam.pem 4096
 	```
        
        ```
-       ssl_dhparam /etc/nginx/ssl/dhparam.pem;
-	```
+	ssl_dhparam /etc/nginx/ssl/dhparam.pem;
+       ```
        
 - [ ] config to enable HSTS(HTTP Strict Transport Security) to avoid [ssl stripping](https://en.wikipedia.org/wiki/SSL_stripping#SSL_stripping). This should not be a problem if ALL, yes, if ALL traffic is redirected to https
        ```
