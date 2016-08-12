@@ -49,7 +49,7 @@ To solve that problem browser like Chrome, Firefox, Safari etc. come embedded wi
 	ssl_ciphers "ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4"; #Disables all weak ciphers
        ```
 
-- [ ] Older versions of ssl protocols have been found to have multiple severe vulnerabilities (ex: [POODLE attack](https://en.wikipedia.org/wiki/POODLE), [DROWN attack](https://en.wikipedia.org/wiki/DROWN_attack), so support only TLSv1.1 and TLSv1.2. Do not support sslv2 and sslv3. Do [check the adoption](https://en.wikipedia.org/wiki/Transport_Layer_Security#Web_browsers) to know the trade off of restricting to these versions of TLS.
+- [ ] Older versions of ssl protocols have been found to have multiple severe vulnerabilities (ex: [POODLE attack](https://en.wikipedia.org/wiki/POODLE), [DROWN attack](https://en.wikipedia.org/wiki/DROWN_attack)), so support only TLSv1.1 and TLSv1.2. Do not support sslv2 and sslv3. Do [check the adoption](https://en.wikipedia.org/wiki/Transport_Layer_Security#Web_browsers) to know the trade off of restricting to these versions of TLS.
        ```
 	ssl_protocols TLSv1.1 TLSv1.2;
 	```
