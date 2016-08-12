@@ -4,11 +4,11 @@
 ## The problem
 The problem with HTTP without any S is that it sends and receives data in plain text. 
 
-`Well, who can see my data in plain text?`
+#### Well, who can see my data in plain text?
 
 Well, anyone in your local network, your co-workers for example or people sitting around in your favourite cåfe. 
 
-`How will they do it?`
+#### How will they do it?
 
 They can tell the [switch](https://en.wikipedia.org/wiki/Network_switch) to deliver packets to their machine instead of yours by [ARP poisioning](https://en.wikipedia.org/wiki/ARP_spoofing) the ARP table maintained by the `switch` :
 ![ARP poisioning](/img/arp.png)
@@ -68,7 +68,7 @@ To solve that problem browser like Chrome, Firefox, Safari etc. come embedded wi
 	add_header Strict-Transport-Security "max-age=31536000; includeSubdomains;";
        ```
 
-### Certificate Pinning for apps (and website)
+## Certificate Pinning for apps (and website)
 #### What's this now?
 In general any user who has an access to the app can see all the API calls even if it HTTPS. To do that he creates a certificate authority and tells the device (Android / iOS) to trust it. Now when you connect to the server it replaces your server's certificate with the one generated `on the fly` with its certificate (own public/private `key` pair) and now he can sit in the middle and act as server for the mobile client and act as client for the server. Sneaky.
 
