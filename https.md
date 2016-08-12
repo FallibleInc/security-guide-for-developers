@@ -73,10 +73,10 @@ To solve that problem browser like Chrome, Firefox, Safari etc. come embedded wi
 In general any user who has an access to the app can see all the API calls even if it HTTPS. To do that he creates a certificate authority and tells the device (Android / iOS) to trust it. Now when you connect to the server it replaces your server's certificate with the one generated `on the fly` with its certificate (own public/private `key` pair) and now he can sit in the middle and act as server for the mobile client and act as client for the server. Sneaky.
 
 #### Wait! Isn't HTTPS supposed to prevent that?
-Yes, but HTTPS can only help you when the trusted certificate authorities are actually trust worthy. In this case, the user forced the device to a trust his own created certificate authority! 
+Yes, but HTTPS can only help you when the trusted certificate authorities are actually trust worthy. In this case, the user forced the device to trust his own created certificate authority! 
 
 #### So, how do I prevent that?
-Certificate pinning - Basically, in your app bundle, hard code the server certificate and before doing any API call check the whether the server is really using that same hardcoded certificate or someone tried to sneak in its own certificate.
+Certificate pinning - Basically, in your app bundle, hard code the server certificate and before doing any API call check whether the server is really using that same hardcoded certificate or someone tried to sneak in his own certificate.
 
 #### Caution
 * In case the certificate changes on the server side you will have to force the users to update the app else the app will stop working.
