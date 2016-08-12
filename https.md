@@ -36,8 +36,9 @@ To solve that problem browser like Chrome, Firefox, Safari etc. come embedded wi
 ### How to get HTTPS for my website?
 #### There are two ways to get HTTPS to your website
 1. Paid 
-	* 
+	* TODO
 2. Free
+	* TODO
 
 #### Best practices for https configuration, examples is for [nginx](https://www.nginx.com/) but settings for apache are available too ([mod_ssl](https://httpd.apache.org/docs/current/mod/mod_ssl.html) & [mod_headers](http://httpd.apache.org/docs/current/mod/mod_headers.html))
 - [ ] regularly update/patch [openssl](https://www.openssl.org/source/) to the latest version available because that will protect you from bugs like [heartbleed](https://en.wikipedia.org/wiki/Heartbleed) and [many more](https://www.openssl.org/news/secadv/20160503.txt).
