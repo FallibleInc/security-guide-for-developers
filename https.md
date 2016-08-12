@@ -40,20 +40,20 @@ To solve that problem browser like Chrome, Firefox, Safari etc. come embedded wi
 2. Free
 
 #### Best practices for https configuration, examples is for [nginx](https://www.nginx.com/) but settings for apache are available too ([mod_ssl](https://httpd.apache.org/docs/current/mod/mod_ssl.html) & [mod_headers](http://httpd.apache.org/docs/current/mod/mod_headers.html))
-- [ ] update [openssl](https://www.openssl.org/source/) to the latest version available
-- [ ] server-side protection from [BEAST attacks](https://en.wikipedia.org/wiki/Transport_Layer_Security#BEAST_attack)
+- [ ] regularly update/patch [openssl](https://www.openssl.org/source/) to the latest version available because that will protect you from bugs like [heartbleed](https://en.wikipedia.org/wiki/Heartbleed) and [many more](https://www.openssl.org/news/secadv/20160503.txt).
+- [ ] add this flag in nginx server conf for server-side protection from [BEAST attacks](https://en.wikipedia.org/wiki/Transport_Layer_Security#BEAST_attack)
        ```
        ssl_prefer_server_ciphers on;`
 
        ssl_ciphers "ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4"; #Disables all weak ciphers
        ```
 
-- [ ] support only TLSv1.1 and TLSv1.2. Do not support sslv2 and sslv3
+- [ ] Older versions of ssl protocols have been found to have multiple severe vulnerabilities, so support only TLSv1.1 and TLSv1.2. Do not support sslv2 and sslv3.
        ```
 	ssl_protocols TLSv1.1 TLSv1.2;
 	```
 
-- [ ] do not use the default Diffie-Hellman parameter, locally generate param for more security
+- [ ] Default Diffie-Hellman parameter used by nginx is only 1024 bits and is considered not so secure, so do not use the default Diffie-Hellman parameter, locally generate the parameter for more security
 	```shell
 	cd /etc/ssl/certs
 	openssl dhparam -out dhparam.pem 4096
