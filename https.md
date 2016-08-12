@@ -13,7 +13,7 @@ Well, anyone in your local network, your co-workers for example or people sittin
 They can tell the [switch](https://en.wikipedia.org/wiki/Network_switch) to deliver packets to their machine instead of yours by [ARP poisioning](https://en.wikipedia.org/wiki/ARP_spoofing) the ARP table maintained by the `switch` :
 ![ARP poisioning](/img/arp.png)
 
-The owner of the cafe or your boss in your office can see your data by programming the hub/switch easily since they own and have physical access to it or [wire tapping](https://en.wikipedia.org/wiki/Fiber_tapping) the wire itself coming in to the cafe.
+Also, the owner of the cafe or your boss in your office can see your data by programming the hub/switch easily since they own and have physical access to it or [wire tapping](https://en.wikipedia.org/wiki/Fiber_tapping) the wire itself coming in to the cafe.
 
 **Bad HTTP!**
 
@@ -49,12 +49,12 @@ To solve that problem browser like Chrome, Firefox, Safari etc. come embedded wi
 	ssl_ciphers "ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4"; #Disables all weak ciphers
        ```
 
-- [ ] Older versions of ssl protocols have been found to have multiple severe vulnerabilities, so support only TLSv1.1 and TLSv1.2. Do not support sslv2 and sslv3.
+- [ ] Older versions of ssl protocols have been found to have multiple severe vulnerabilities (ex: [POODLE attack](https://en.wikipedia.org/wiki/POODLE), [DROWN attack](https://en.wikipedia.org/wiki/DROWN_attack), so support only TLSv1.1 and TLSv1.2. Do not support sslv2 and sslv3. Do [check the adoption](https://en.wikipedia.org/wiki/Transport_Layer_Security#Web_browsers) to know the trade off of restricting to these versions of TLS.
        ```
 	ssl_protocols TLSv1.1 TLSv1.2;
 	```
 
-- [ ] Default Diffie-Hellman parameter used by nginx is only 1024 bits and is considered not so secure, so do not use the default DH parameter, locally generate the parameter for more security
+- [ ] Default Diffie-Hellman parameter used by nginx is only 1024 bits which is considered not so secure. Also, it is same for all nginx users who uses the default config. It is estimated that an academic team can break 768-bit primes and that a nation-state could break a 1024-bit prime. By breaking one 1024-bit prime, one could eavesdrop on 18 percent of the top one million HTTPS domains, so do not use the default DH parameter, locally generate the parameter for more security, also use higher number of bits.
 	```shell
 	$ cd /etc/ssl/certs
 	$ openssl dhparam -out dhparam.pem 4096
@@ -71,7 +71,7 @@ To solve that problem browser like Chrome, Firefox, Safari etc. come embedded wi
 
 ## Certificate Pinning for apps (and website)
 #### What's this now?
-In general any user who has an access to the app can see all the API calls even if it HTTPS. To do that he creates a certificate authority and tells the device (Android / iOS) to trust it. Now when you connect to the server it replaces your server's certificate with the one generated `on the fly` with its certificate (own public/private `key` pair) and now he can sit in the middle and act as server for the mobile client and act as client for the server. Sneaky.
+In general any user who has an access to the app can see all the API calls even if it HTTPS. To do that he creates a certificate authority and tells the device (Android / iOS) to trust it. Now when you connect to the server it replaces your server's certificate with the one generated `on the fly` with its certificate (own public/private `key` pair) signed by his own certificate authority and now he can sit in the middle and act as server for the mobile client and act as client for the server. Sneaky.
 
 #### Wait! Isn't HTTPS supposed to prevent that?
 Yes, but HTTPS can only help you when the trusted certificate authorities are actually trust worthy. In this case, the user forced the device to trust his own created certificate authority! 
