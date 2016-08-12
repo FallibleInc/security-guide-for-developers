@@ -68,8 +68,27 @@ To solve that problem browser like Chrome, Firefox, Safari etc. come embedded wi
 	add_header Strict-Transport-Security "max-age=31536000; includeSubdomains;";
        ```
 
-### Certificate Pinning for apps
-#TODO
+### Certificate Pinning for apps (and website)
+#### What's this now?
+In general any user who has an access to the app can see all the API calls even if it HTTPS. To do that he creates a certificate authority and tells the device (Android / iOS) to trust it. Now when you connect to the server it replaces your server's certificate with the one generated `on the fly` with its certificate (own public/private `key` pair) and now he can sit in the middle and act as server for the mobile client and act as client for the server. Sneaky.
+
+#### Wait! Isn't HTTPS supposed to prevent that?
+Yes, but HTTPS can only help you when the trusted certificate authorities are actually trust worthy. In this case, the user forced the device to a trust his own created certificate authority! 
+
+#### So, how do I prevent that?
+Certificate pinning - Basically, in your app bundle, hard code the server certificate and before doing any API call check the whether the server is really using that same hardcoded certificate or someone tried to sneak in its own certificate.
+
+#### Caution
+* In case the certificate changes on the server side you will have to force the users to update the app else the app will stop working.
+* If you mess up the certificate pinning, you will have to ask users to update the app else the app will stop working.
+
+#### A better way!
+Certificate pinning is a good way to prevent this but there is one better way to ensure no one can snoop in - use `public key pinning`. Generally sites like Google rotates its certificate so you will have to force users to update your app. Instead what you should pin in your app is the `public key` which remains static even when Google rotates its certificate hence not needing any app update. This is called `Public key Pinning`.
+
+* Android and iOS sample code examples: 
+```
+https://www.paypal-engineering.com/2015/10/14/key-pinning-in-mobile-applications/
+```
 
 ### Precautions for general public
 #TODO
