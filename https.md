@@ -54,7 +54,7 @@ To solve that problem browser like Chrome, Firefox, Safari etc. come embedded wi
 	ssl_protocols TLSv1.1 TLSv1.2;
 	```
 
-- [ ] Default Diffie-Hellman parameter used by nginx is only 1024 bits which is considered not so secure. Also, it is same for all nginx users who uses the default config. It is estimated that an academic team can break 768-bit primes and that a nation-state could break a 1024-bit prime. By breaking one 1024-bit prime, one could eavesdrop on 18 percent of the top one million HTTPS domains, so do not use the default DH parameter, locally generate the parameter for more security, also use higher number of bits.
+- [ ] Default Diffie-Hellman parameter used by nginx is only 1024 bits which is considered not so secure. Also, it is same for all nginx users who use the default config. It is estimated that an academic team can break 768-bit primes and that a nation-state could break a 1024-bit prime. By breaking one 1024-bit prime, one could eavesdrop on 18 percent of the top one million HTTPS domains, so do not use the default DH parameter, locally generate the parameter for more security, also use higher number of bits.
 	```shell
 	$ cd /etc/ssl/certs
 	$ openssl dhparam -out dhparam.pem 4096
