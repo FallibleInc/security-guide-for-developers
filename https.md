@@ -40,7 +40,7 @@ To solve that problem browser like Chrome, Firefox, Safari etc. come embedded wi
 2. Free
 	* TODO
 
-#### Best practices for https configuration, examples are for [nginx](https://www.nginx.com/) but settings for apache are available too ([mod_ssl](https://httpd.apache.org/docs/current/mod/mod_ssl.html) & [mod_headers](http://httpd.apache.org/docs/current/mod/mod_headers.html))
+#### Best practices for https configuration, examples are for [nginx](https://www.nginx.com/) but settings for apache and others are available too ([ssl config generator](https://mozilla.github.io/server-side-tls/ssl-config-generator/))
 - [ ] regularly update/patch [openssl](https://www.openssl.org/source/) to the latest version available because that will protect you from bugs like [heartbleed](https://en.wikipedia.org/wiki/Heartbleed) and [many more](https://www.openssl.org/news/secadv/20160503.txt).
 - [ ] add this flag in nginx server conf for server-side protection from [BEAST attacks](https://en.wikipedia.org/wiki/Transport_Layer_Security#BEAST_attack)
        ```
@@ -95,4 +95,8 @@ https://www.paypal-engineering.com/2015/10/14/key-pinning-in-mobile-applications
 #TODO
 
 ## Future of HTTPS
-#TODO
+Web was built on HTTP protocol which lacks the security bit. Slowly people started to feel the need to have the channel secured, so that led to the birth of HTTPS. Still as of today majority of the websites are HTTP since thats the `default protocol`. If one needs to get HTTPS they use one of the methods mentioned in the section above "how to get https for my website". 
+
+It would be awesome if all the websites use `https` instead of `http`. Also, all the browsers should force https, meaning they should fail the request if it is not `https`. Currently this is implemented using `HSTS` preload list but that is optional for websites to opt in but it would be nice if all the websites were forced to be https. This would improve the security of end users. There are plugins to use [HTTPS everywhere](https://www.eff.org/Https-everywhere) which forces all the communication to be on `https://` if possible.
+
+But there is a problem with upgrading to https, that is, if some website was previously linked as http and now only works with https then that `http link` will break (as the links to this site would not get updated by the linker website). [A proposal](https://www.w3.org/DesignIssues/Security-NotTheS.html) then is to do HTTPS everywhere in the sense of the protocol but not the URI prefix. 
