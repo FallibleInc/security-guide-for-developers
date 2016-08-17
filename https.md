@@ -37,8 +37,10 @@ To solve that problem browser like Chrome, Firefox, Safari etc. come embedded wi
 #### There are two ways to get HTTPS to your website
 1. Paid 
 	* TODO
-2. Free
-	* TODO
+2. Free: 
+	* Use [LetsEncrypt](https://letsencrypt.org/). Letsencrypt is free because the whole process is totally automated hence getting rid of the manual cost of configuration, creation, validation, expiration etc. 
+	* To setup, follow the steps mentioned here depending on your server: [Setup steps](https://certbot.eff.org/#ubuntuxenial-nginx)
+	
 
 #### Best practices for https configuration, examples are for [nginx](https://www.nginx.com/) but settings for apache and others are available too ([ssl config generator](https://mozilla.github.io/server-side-tls/ssl-config-generator/))
 - [ ] regularly update/patch [openssl](https://www.openssl.org/source/) to the latest version available because that will protect you from bugs like [heartbleed](https://en.wikipedia.org/wiki/Heartbleed) and [many more](https://www.openssl.org/news/secadv/20160503.txt).
@@ -92,7 +94,12 @@ https://www.paypal-engineering.com/2015/10/14/key-pinning-in-mobile-applications
 ```
 
 ## Precautions for general public
-#TODO
+* When you visit a website in your browser, make sure it displays the padlock like this (will be gray in safari)
+![padlock](/img/padlock.png)
+* If you see striked out padlock and a warning page, then do not proceed, someone might be snooping on your traffic.
+* iOS and Android apps have no way to tell if they are encrypting the traffic. Bad luck.
+* If you use a mobile phone or laptop provided by the company then they may install certain certificates to be trusted by the device and can easily snoop on all your browsing. You should check if any ca cert is installed in your phone. Steps to check: todo
+
 
 ## Future of HTTPS
 Web was built on HTTP protocol which lacks the security bit. Slowly people started to feel the need to have the channel secured, so that led to the birth of HTTPS. Still as of today majority of the websites are HTTP since thats the `default protocol`. If one needs to get HTTPS they use one of the methods mentioned in the section above "how to get https for my website". 
