@@ -96,5 +96,3 @@
 - [ ] http://overthewire.org/wargames/natas/
 - [ ] https://www.hackthissite.org/
 - [ ] https://www.hellboundhackers.org/
-
-
