@@ -1,4 +1,4 @@
-# A practical security guide for web developers
+# A practical security guide for web developers (Work in progress)
 
 ### The intended audience
 
@@ -13,7 +13,7 @@ Our detailed explanations should help the first type while we hope our checklist
 ### Contents
 
 1. [The Security Checklist](security-checklist.md)
-2. What can go wrong?
+2. [What can go wrong?](what-can-go-wrong.md)    
 3. Securely transporting stuff: HTTPS explained
 4. Authentication: I am who I say I am  
 4.1 Form based authentication  
