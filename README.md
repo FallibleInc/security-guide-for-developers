@@ -14,7 +14,7 @@ Our detailed explanations should help the first type while we hope our checklist
 
 1. [The Security Checklist](security-checklist.md)
 2. [What can go wrong?](what-can-go-wrong.md)    
-3. Securely transporting stuff: HTTPS explained
+3. [Securely transporting stuff: HTTPS explained](https.md)
 4. Authentication: I am who I say I am  
 4.1 Form based authentication  
 4.2 Basic authentication  

@@ -2,11 +2,11 @@
 
 
 ## The problem
-The problem with HTTP without any S is that it sends and receives data in plain text. 
+HTTP is the protocol that the browsers use to communicate with the server. The problem with HTTP without any S is that it sends and receives data in plain text. 
 
 #### Well, who can see my data in plain text?
 
-Well, anyone in your local network, your co-workers for example or people sitting around in your favourite cåfe. 
+Well, anyone in your local network, your co-workers for example or people sitting around you in your favourite cafe. 
 
 #### How will they do it?
 
@@ -33,10 +33,18 @@ There is still one problem with the above process, that is, any [man in the midd
 
 To solve that problem browser like Chrome, Firefox, Safari etc. come embedded with information to find out which certificates are genuine. Browsers look for signature in the certificate, the signature on the certificate needs to be from one of the trusted [certificate authorities](https://en.wikipedia.org/wiki/Certificate_authority). In simple terms, certificate authorities are certain well-known organisations which everyone knows to be trust worthy (it all boils down to trust). If there is no such signature in the certificate then the browser will display a warning to the user that this connection is not really HTTPS. The server on the other hand need to get the signed certificate from one of the certificate authority by physically verifying their identity(by sending docs etc.).
 
+So, `https` servers two main purpose 
+
+	* It tells you that the website domain shown in the browser is the one you are actually talking to.
+	* It encrypts all the communication between the domain in the browser and the browser itself.
+	
 ### How to get HTTPS for my website?
 #### There are two ways to get HTTPS to your website
 1. Paid 
-	* TODO
+	* You need to buy a SSL certificate from some CAs 
+	* Then you need to generate a certificate signing request from your server
+	* Then they ask you to verify that you really own the domain.
+	* Then they let you download the signed certificate which you can use in your server's configuration.
 2. Free: 
 	* Use [LetsEncrypt](https://letsencrypt.org/). Letsencrypt is free because the whole process is totally automated hence getting rid of the manual cost of configuration, creation, validation, expiration etc. 
 	* To setup, follow the steps mentioned here depending on your server: [Setup steps](https://certbot.eff.org/#ubuntuxenial-nginx)
@@ -94,11 +102,11 @@ https://www.paypal-engineering.com/2015/10/14/key-pinning-in-mobile-applications
 ```
 
 ## Precautions for general public
-* When you visit a website in your browser, make sure it displays the padlock like this (will be gray in safari)
-![padlock](/img/padlock.png)
-* If you see striked out padlock and a warning page, then do not proceed, someone might be snooping on your traffic.
+* When you visit a website in your browser, make sure it displays the padlock like this ![padlock](/img/padlock.png) (will be gray in safari)
+* If you are using an untrusted or public internet(wifi/wired) and you see striked out padlock and a warning page, then do not proceed, someone might be snooping on your traffic.
 * iOS and Android apps have no way to tell if they are encrypting the traffic. Bad luck.
-* If you use a mobile phone or laptop provided by the company then they may install certain certificates to be trusted by the device and can easily snoop on all your browsing. You should check if any ca cert is installed in your phone. Steps to check: todo
+* Do not hand over your unloked mobile phones to any untrusted person. He/she might install certain untrusted `CAs` (certificate authorities) and can see all your traffic.
+* If you use a mobile phone or laptop provided by the company then they might have installed certain `CAs` (certificates authorities) to be trusted by the device and can easily snoop on all your browsing. You should check if any `CA` is installed in your phone. Steps to check: In iOS, go to `Settings` -> `General` -> `Profiles`. If there is anything installed there then someone might be sniffing your traffic. In Android, go to `Settings`, under "Personal," tap `Security`, under "Credential storage," tap `Trusted credentials`. Check the certificates installed by user and system.
 
 
 ## Future of HTTPS
