@@ -72,6 +72,12 @@
 - [ ] Be prepared for bad actors & DDOS - use a hosting service that has DDOS mitigation.
 - [ ] Set up monitoring for your systems, and log stuff (use [New Relic](https://newrelic.com/) or something like that).
 - [ ] If developing for enterprise customers, adhere to compliance requirements. If AWS S3, consider using the feature to [encrypt data](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html). If using AWS EC2, consider using the feature to use encrypted volumes (even boot volumes can be encrypted now).
+- [ ] Setup and configure a Web Application Firewall (like dotDefender: http://www.applicure.com/download-latest)
+- [ ] Setup and configure an Intrustion Detection System (like Snort: https://www.snort.org/)
+
+##### STATIC AND DYANMIC ANALYSIS
+- [ ] Static analysis is available for some languages and can trace user input through a system while exposing potentially vulnerable code (eval, exec, fgets sprintf vs snprintf, etc).  An example for PHP is RIPS https://www.ripstech.com
+- [ ] Dynamic analysis leverages fuzzing (automatically generated user input) and error detection (do we see PHP errors?  does the page render our JavaScript? etc) -- the best fuzzers are targeted to the application and created by hand, but some tools like w3af, the professional version of Burpsuite, Nessus, and sqlmap provide a solid base-line.
 
 ##### PEOPLE
 - [ ] Set up an email (e.g. security@coolcorp.io) and a page for security researchers to report vulnerabilities.
@@ -80,3 +86,13 @@
 - [ ] Have your code review done by a fellow developer from a secure coding perspective. (More eyes)
 - [ ] In case of a hack or data breach, check previous logs for data access, ask people to change passwords. You might require an audit by external agencies depending on where you are incorporated.  
 - [ ] Set up [Netflix's Scumblr](https://github.com/Netflix/Scumblr) to hear about talks about your organization on social platforms and Google search.
+
+##### OTHER CHECKLISTS
+- [ ] https://www.owasp.org/index.php/Testing_Checklist
+- [ ] https://www.owasp.org/index.php/OWASP_Secure_Coding_Practices_Checklist
+- [ ] https://www.owasp.org/index.php/Web_Application_Security_Testing_Cheat_Sheet
+
+##### WEB SECURITY WARGAMES
+- [ ] http://overthewire.org/wargames/natas/
+- [ ] https://www.hackthissite.org/
+- [ ] https://www.hellboundhackers.org/
