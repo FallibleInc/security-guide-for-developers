@@ -4,13 +4,25 @@
 ### The Security Checklist 
 
 ##### AUTHENTICATION SYSTEMS (Signup/Signin/2 Factor/Password reset) 
-- [ ] Use HTTPS everywhere.
-- [ ] Store password hashes using `Bcrypt` (no salt necessary - `Bcrypt` does it for you).
-- [ ] Destroy the session identifier after `logout`.  
+- [ ] If available, use HSTS.  This is not common yet.
+    - [ ] Use HTTPS everywhere at a minimum.
+    - [ ] Make sure your HTTPS cipher suite is up to date
+    - [ ] Make sure your SSL implementation is up to date
+- [ ] Store password hashes using RFC 7914 `scrypt`
+    - [ ] `bcrypt` is acceptable if `scrypt` is unavailable
+    - [ ] `sha2-1024 HMAC stretched` is acceptable if you're forced to use it by regulation
+- [ ] Check privileges with every action, not just at login, in case privileges change during a session.
+    - [ ] Consider forcing a session cycle with high-stakes privilege changes.  (Group added/removed?  Force login.)
+    - [ ] Consider forcing a session cycle with high stakes client requests.  (Wants to delete a repo?  Force login.)
+- [ ] Destroy the session identifier after `logout`.
+- [ ] Session identifiers should be tied to physical devices and physical locations in a way that they're indexable
+    - [ ] Google mail can tell you when your mail was recently accessed from some horrible unknown location, meaning you were haxed
 - [ ] Destroy all active sessions on reset password (or offer to).  
+- [ ] Allow a user to voluntarily destroy active sessions
 - [ ] Must have the `state` parameter in OAuth2.
 - [ ] No open redirects after successful login or in any other intermediate redirects.
 - [ ] When parsing Signup/Login input, sanitize for javascript://, data://, CRLF characters. 
+- [ ] Get CORS and X-FRAME-OPTIONS right.
 - [ ] Set secure, httpOnly cookies.
 - [ ] In Mobile `OTP` based mobile verification, do not send the OTP back in the response when `generate OTP` or `Resend OTP`  API is called.
 - [ ] Limit attempts to `Login`, `Verify OTP`, `Resend OTP` and `generate OTP` APIs for a particular user. Have an exponential backoff set or/and something like a captcha based challenge.
