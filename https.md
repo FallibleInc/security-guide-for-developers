@@ -33,7 +33,7 @@ There is still one problem with the above process, that is, any [man in the midd
 
 To solve that problem browser like Chrome, Firefox, Safari etc. come embedded with information to find out which certificates are genuine. Browsers look for signature in the certificate, the signature on the certificate needs to be from one of the trusted [certificate authorities](https://en.wikipedia.org/wiki/Certificate_authority). In simple terms, certificate authorities are certain well-known organisations which everyone knows to be trust worthy (it all boils down to trust). If there is no such signature in the certificate then the browser will display a warning to the user that this connection is not really HTTPS. The server on the other hand need to get the signed certificate from one of the certificate authority by physically verifying their identity(by sending docs etc.).
 
-So, `https` servers two main purpose 
+So, `https` serves two main purposes 
 
 	* It tells you that the website domain shown in the browser is the one you are actually talking to.
 	* It encrypts all the communication between the domain in the browser and the browser itself.
