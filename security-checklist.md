@@ -24,7 +24,7 @@
 - [ ] Serially iterable resource id should be avoided. Use `/me/orders` instead of `/user/37153/orders`. This acts as a sanity check in case you forgot to check for authorization token. 
 - [ ] `Edit email/phone number` feature should be accompanied by a verification email to the owner of the account. 
 - [ ] Any upload feature should sanitize the filename provided by the user. Also, for generally reasons apart from security, upload to something like S3 (and post-process using lambda) and not your own server capable of executing code.  
-- [ ] `Profile photo upload` feature should sanitize all the `EXIF` tags also if not required.
+- [ ] `Profile photo upload` feature should sanitize all the `EXIF` tags also if not required. You can also recreate the image and destroy the uploaded one and store the recreated image see [DVWA Image Upload](https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/upload/source/impossible.php).
 - [ ] For user ids and other ids, use [RFC compliant ](http://www.ietf.org/rfc/rfc4122.txt) `UUID` instead of integers. You can find an implementation for this for your language on Github.
 - [ ] JWT are awesome. Use them if required for your single page app/APIs.
 
@@ -54,6 +54,7 @@
 ##### SANITIZATION OF INPUT
 - [ ] `Sanitize` all user inputs or any input parameters exposed to user to prevent [XSS](https://en.wikipedia.org/wiki/Cross-site_scripting).
 - [ ] Always use parameterized queries to prevent [SQL Injection](https://en.wikipedia.org/wiki/SQL_injection).  
+- [ ] For noSQL databases (eg: MongoDB) Do not pass in the whole request body to instantiate an instance of your model. Extract the only the fields that the model needs. If not, request body can be easily tampered using burp suite. Assuming your model has an IsAdmin property, it will be set as true though not part of the signup form when the request is intercepted by a proxy server
 - [ ] Sanitize user input if using it directly for functionalities like CSV import.
 - [ ] `Sanitize` user input for special cases like robots.txt as profile names in case you are using a url pattern like coolcorp.io/username. 
 - [ ] Do not hand code or build JSON by string concatenation ever, no matter how small the object is. Use your language defined libraries or framework.
