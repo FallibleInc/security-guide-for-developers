@@ -1,5 +1,7 @@
 # Securely transporting stuff: HTTPS explained
 
+> [!NOTE]
+> HTTPS is mandatory for all modern web applications. This chapter explains why and how to implement it correctly.
 
 ## The problem
 HTTP is the protocol that the browsers use to communicate with the server. The problem with HTTP without any S is that it sends and receives data in plain text. 
@@ -50,19 +52,29 @@ So, `https` servers two main purpose
 	* To setup, follow the steps mentioned here depending on your server: [Setup steps](https://certbot.eff.org/#ubuntuxenial-nginx)
 	
 
-#### Best practices for https configuration, examples are for [nginx](https://www.nginx.com/) but settings for apache and others are available too ([ssl config generator](https://mozilla.github.io/server-side-tls/ssl-config-generator/))
-- [ ] regularly update/patch [openssl](https://www.openssl.org/source/) to the latest version available because that will protect you from bugs like [heartbleed](https://en.wikipedia.org/wiki/Heartbleed) and [many more](https://www.openssl.org/news/secadv/20160503.txt).
-- [ ] add this flag in nginx server conf for server-side protection from [BEAST attacks](https://en.wikipedia.org/wiki/Transport_Layer_Security#BEAST_attack)
-       ```
-	ssl_prefer_server_ciphers on;`
+#### Best practices for HTTPS configuration (2025 Edition)
 
-	ssl_ciphers "ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4"; #Disables all weak ciphers
+> [!IMPORTANT]
+> Use TLS 1.3 whenever possible. TLS 1.2 is acceptable but TLS 1.3 provides better security and performance.
+
+Examples are for [nginx](https://www.nginx.com/) but settings for Apache and others are available at [Mozilla SSL Configuration Generator](https://ssl-config.mozilla.org/).
+
+**Essential Security Measures:**
+
+- [ ] **Keep OpenSSL Updated**: Regularly update/patch [OpenSSL](https://www.openssl.org/source/) to protect against vulnerabilities like [Heartbleed](https://en.wikipedia.org/wiki/Heartbleed)
+- [ ] **Use Modern TLS Versions**: Support only TLS 1.2 and TLS 1.3. Disable older protocols:
+       ```nginx
+       ssl_protocols TLSv1.2 TLSv1.3;
        ```
 
-- [ ] Older versions of ssl protocols have been found to have multiple severe vulnerabilities (ex: [POODLE attack](https://en.wikipedia.org/wiki/POODLE), [DROWN attack](https://en.wikipedia.org/wiki/DROWN_attack)), so support only TLSv1.1 and TLSv1.2. Do not support sslv2 and sslv3. Do [check the adoption](https://en.wikipedia.org/wiki/Transport_Layer_Security#Web_browsers) to know the trade off of restricting to these versions of TLS.
+- [ ] **Modern Cipher Configuration**: Use secure cipher suites that support Perfect Forward Secrecy:
+       ```nginx
+       ssl_prefer_server_ciphers off;  # Let client choose for TLS 1.3
+       ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;
        ```
-	ssl_protocols TLSv1.1 TLSv1.2;
-	```
+
+> [!WARNING]
+> **Deprecated in 2025**: SSLv2, SSLv3, TLS 1.0, and TLS 1.1 are all deprecated and should never be used.
 
 - [ ] Default Diffie-Hellman parameter used by nginx is only 1024 bits which is considered not so secure. Also, it is same for all nginx users who use the default config. It is estimated that an academic team can break 768-bit primes and that a nation-state could break a 1024-bit prime. By breaking one 1024-bit prime, one could eavesdrop on 18 percent of the top one million HTTPS domains, so do not use the default DH parameter, locally generate the parameter for more security, also use higher number of bits.
 	```shell
