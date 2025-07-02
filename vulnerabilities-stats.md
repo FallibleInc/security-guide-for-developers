@@ -3,8 +3,8 @@
 
 ### Hackerone publicly disclosed bugs Stats
 
-At the time of writing, the Hackerone platform had 1731 publicly disclosed bugs in companies such as Twitter, Uber, Dropbox, Github etc.
-8 of the bugs were removed as outright spam. 9 others were related to bugs in the Internet or a specific programming language. Out of the remaining 1714, we were able to classify 1359 issues using some code and manual work.
+Updated analysis of HackerOne vulnerability reports shows 12,618 total issues analyzed from the dataset.
+All 12,618 issues were successfully classified using automated parsing and categorization.
 
     
     
@@ -14,63 +14,40 @@ At the time of writing, the Hackerone platform had 1731 publicly disclosed bugs 
 
 | Classification | Count | Percentage |
 | --- | --- |  --- |
-| User Input Sanitization        | 481      | 27.8
-| Other code issues              | 549      | 31.7
-| Configuration issues           | 325      | 18.8
-| Unclassified+Info+Junk         | 376      | 21.7
+| User Input Sanitization        | 4267     | 33.8
+| Unclassified+Info+Junk         | 4066     | 32.2
+| Other code issues              | 3350     | 26.5
+| Configuration issues           | 935      | 7.4
 
 
 #### Issues sorted by their frequency of occurrence
 
-1 out of 3 issues were related to XSS, Insecure references to data (data leak) or missing CSRF token. The [Hackerone page](https://hackerone.com/hacktivity/new) listing these issues is quite interesting and can be read.
+1 out of 3 issues were related to XSS, Information disclosure, or other code issues. The [Hackerone page](https://hackerone.com/hacktivity/new) listing these issues is quite interesting and can be read.
 
 Type|Count|Percentage
 | --- | --- | --- |
-XSS|375|21.87
-Insecure reference + Data Leak|104|6.06
-CSRF Token|99|5.77
-Open Redirects|59|3.44
-Information/Source Code Disclosure|57|3.32
-DNS misconfiguration + Apache/Nginx + Subdomain Takeover + Open AWS_S3|44|2.56
-Improper Session management/Fixation|39|2.27
-TLS/SSL/POODLE/Heartbleed|39|2.27
-HTML/JS/XXE/Content Injections|37|2.15
-HTTP Header Issues|34|1.98
-NULL POINTER + SEGFAULT + Using memory after free()|33|1.92
-DMARC/DKIM/SPF settings for Mail|31|1.8
-SQL Injection|28|1.63
-Clickjacking|27|1.57
-Improper Cookies (secure/httpOnly/exposed)|25|1.45
-Path disclosure|25|1.45
-Broken/Open Authentication|24|1.4
-Brute Force attacks|24|1.4
-Content Spoofing|20|1.16
-Buffer overflow|20|1.16
-Denial Of Service|19|1.1
-Server Side Request Forgery|18|1.05
-Adobe Flash vulnerabilities|18|1.05
-User/Info Enumeration|17|0.99
-Remote Code Execution|15|0.87
-Password reset token expiration/attempts/others|13|0.75
-Integer overflow|11|0.64
-Version Disclosure|11|0.64
-CSV Injection|10|0.58
-Privilege Escalation|9|0.52
-OAuth state/leaks and other issues|9|0.52
-Password Policy|7|0.4
-CRLF|7|0.4
-PythonLang|6|0.35
-Homograph attack|6|0.35
-File upload type/size/location sanitize|6|0.35
-Captcha bypass|5|0.29
-Remote/Local File inclusion|4|0.23
-Directory listing|4|0.23
-Path traversal|4|0.23
-Remote File Upload|4|0.23
-Autocomplete enabled|4|0.23
-Leak through referer|3|0.17
-Pixel Flood Attack|3|0.17
-Control Chars in Input|2|0.11
+Other code issues|2599|20.60
+XSS|2168|17.18
+Information/Source Code Disclosure|1521|12.05
+Unclassified+Info+Junk|1467|11.63
+Broken/Open Authentication|868|6.88
+SQL Injection|597|4.73
+CSRF Token|468|3.71
+Denial Of Service|458|3.63
+Privilege Escalation|389|3.08
+NULL POINTER + SEGFAULT + Using memory after free()|307|2.43
+HTML/JS/XXE/Content Injections|299|2.37
+Open Redirects|292|2.31
+Insecure reference + Data Leak|263|2.08
+Server Side Request Forgery|236|1.87
+Path traversal|207|1.64
+Buffer overflow|163|1.29
+Clickjacking|129|1.02
+Password Policy|67|0.53
+Remote Code Execution|58|0.46
+Improper Session management/Fixation|48|0.38
+Integer overflow|13|0.10
+Brute Force attacks|1|0.01
 
 
 ### Some unique vulnerability types
