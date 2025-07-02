@@ -1,11 +1,14 @@
 [Back to Contents](README.md)
 
 
-### The Security Checklist 
+# The Security Checklist
 
-##### AUTHENTICATION SYSTEMS (Signup/Signin/2 Factor/Password reset) 
+> [!NOTE]
+> This checklist is your security safety net. Use it before every deployment to catch common vulnerabilities.
+
+## AUTHENTICATION SYSTEMS (Signup/Signin/2 Factor/Password reset) 
 - [ ] Use HTTPS everywhere.
-- [ ] Store password hashes using `Bcrypt` (no salt necessary - `Bcrypt` does it for you).
+- [ ] Store password hashes using `Argon2id`, `scrypt`, or `Bcrypt` (Argon2id is preferred for new applications).
 - [ ] Destroy the session identifier after `logout`.  
 - [ ] Destroy all active sessions on reset password (or offer to).  
 - [ ] Must have the `state` parameter in OAuth2.
@@ -17,9 +20,13 @@
 - [ ] Check for randomness of reset password token in the emailed link or SMS.
 - [ ] Set an expiration on the reset password token for a reasonable period.
 - [ ] Expire the reset token after it has been successfully used.
+- [ ] Implement proper session management with secure session tokens.
+- [ ] Use TOTP/HOTP instead of SMS for 2FA when possible (SMS is vulnerable to SIM swapping).
+- [ ] Implement account lockout policies after failed login attempts.
+- [ ] Log authentication events for security monitoring.
 
 
-##### USER DATA & AUTHORIZATION
+## USER DATA & AUTHORIZATION
 - [ ] Any resource access like, `my cart`, `my history` should check the logged in user's ownership of the resource using session id.
 - [ ] Serially iterable resource id should be avoided. Use `/me/orders` instead of `/user/37153/orders`. This acts as a sanity check in case you forgot to check for authorization token. 
 - [ ] `Edit email/phone number` feature should be accompanied by a verification email to the owner of the account. 
@@ -29,7 +36,7 @@
 - [ ] JWT are awesome. Use them if required for your single page app/APIs.
 
 
-##### ANDROID / IOS APP
+## ANDROID / IOS APP
 - [ ] `salt` from payment gateways should not be hardcoded.
 - [ ] `secret` / `auth token` from 3rd party SDK's should not be hardcoded.
 - [ ] API calls intended to be done `server to server` should not be done from the app.
@@ -38,14 +45,17 @@
 - [ ] [Certificate pinning](https://en.wikipedia.org/wiki/HTTP_Public_Key_Pinning) is highly recommended.
 
 
-##### SECURITY HEADERS & CONFIGURATIONS
+## SECURITY HEADERS & CONFIGURATIONS
 - [ ] `Add` [CSP](https://en.wikipedia.org/wiki/Content_Security_Policy) header to mitigate XSS and data injection attacks. This is important.
 - [ ] `Add` [CSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery) header to prevent cross site request forgery. Also add [SameSite](https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site-00) attributes on cookies.
 - [ ] `Add` [HSTS](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security) header to prevent SSL stripping attack.
 - [ ] `Add` your domain to the [HSTS Preload List](https://hstspreload.org/)
 - [ ] `Add` [X-Frame-Options](https://en.wikipedia.org/wiki/Clickjacking#X-Frame-Options) to protect against Clickjacking.
-- [ ] `Add` [X-XSS-Protection](https://www.owasp.org/index.php/OWASP_Secure_Headers_Project#X-XSS-Protection) header to mitigate XSS attacks.
+- [ ] `Add` [X-XSS-Protection](https://www.owasp.org/index.php/OWASP_Secure_Headers_Project#X-XSS-Protection) header to mitigate XSS attacks. Note: This header is deprecated in modern browsers but still useful for legacy support.
+- [ ] `Add` [Referrer-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) header to control referrer information.
+- [ ] `Add` [Permissions-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy) (formerly Feature-Policy) to control browser features.
 - [ ] Update DNS records to add [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) record to mitigate spam and phishing attacks.
+- [ ] Add [DMARC](https://dmarc.org/) and [DKIM](https://dkim.org/) records for email authentication.
 - [ ] Add [subresource integrity checks](https://en.wikipedia.org/wiki/Subresource_Integrity) if loading your JavaScript libraries from a third party CDN. For extra security, add the [require-sri-for](https://w3c.github.io/webappsec-subresource-integrity/#parse-require-sri-for) CSP-directive so you don't load resources that don't have an SRI sat.  
 - [ ] Use random CSRF tokens and expose business logic APIs as HTTP POST requests. Do not expose CSRF tokens over HTTP for example in an initial request upgrade phase.
 - [ ] Do not use critical data or tokens in GET request parameters. Exposure of server logs or a machine/stack processing them would expose user data in turn.  
@@ -67,11 +77,17 @@
 - [ ] Check for no/default passwords for `databases` especially MongoDB & Redis.
 - [ ] Use SSH to access your machines; do not setup a password, use SSH key-based authentication instead.
 - [ ] Install updates timely to act upon zero day vulnerabilities like Heartbleed, Shellshock.
-- [ ] Modify server config to use TLS 1.2 for HTTPS and disable all other schemes. (The tradeoff is good.)
+- [ ] Use TLS 1.3 for HTTPS and disable TLS 1.0/1.1. TLS 1.2 is acceptable but TLS 1.3 is preferred.
 - [ ] Do not leave the DEBUG mode on. In some frameworks, DEBUG mode can give access full-fledged REPL or shells or expose critical data in error messages stacktraces.
 - [ ] Be prepared for bad actors & DDOS - use a hosting service that has DDOS mitigation.
 - [ ] Set up monitoring for your systems, and log stuff (use [New Relic](https://newrelic.com/) or something like that).
 - [ ] If developing for enterprise customers, adhere to compliance requirements. If AWS S3, consider using the feature to [encrypt data](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html). If using AWS EC2, consider using the feature to use encrypted volumes (even boot volumes can be encrypted now).
+- [ ] Implement container security scanning for Docker images.
+- [ ] Use secrets management systems (AWS Secrets Manager, HashiCorp Vault) instead of environment variables for sensitive data.
+- [ ] Implement Infrastructure as Code (IaC) security scanning.
+- [ ] Enable CloudTrail/audit logging for all cloud resources.
+- [ ] Regularly scan dependencies for known vulnerabilities (Dependabot, Snyk, OWASP Dependency Check).
+- [ ] Implement least privilege access with IAM roles and policies.
 
 ##### PEOPLE
 - [ ] Set up an email (e.g. security@coolcorp.io) and a page for security researchers to report vulnerabilities.
