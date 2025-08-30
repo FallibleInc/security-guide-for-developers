@@ -17,6 +17,7 @@
 - [ ] Check for randomness of reset password token in the emailed link or SMS.
 - [ ] Set an expiration on the reset password token for a reasonable period.
 - [ ] Expire the reset token after it has been successfully used.
+- [ ] Passwordless (token based) authentication: Set a reasonable expiration on the token.
 
 
 ##### USER DATA & AUTHORIZATION
